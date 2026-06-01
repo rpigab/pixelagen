@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 128" width="256" height="128">
+  <defs>
+    <!-- Raptor: dark gunmetal / near-black / electric cyan -->
+    <linearGradient id="raptorHull" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   style="stop-color:#263238"/>
+      <stop offset="50%"  style="stop-color:#37474f"/>
+      <stop offset="100%" style="stop-color:#1c2a2f"/>
+    </linearGradient>
+    <linearGradient id="raptorSheen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   style="stop-color:#80deea;stop-opacity:0.25"/>
+      <stop offset="40%"  style="stop-color:#37474f;stop-opacity:0"/>
+      <stop offset="100%" style="stop-color:#0a0f12;stop-opacity:0.6"/>
+    </linearGradient>
+    <linearGradient id="panelDark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   style="stop-color:#0a1a1f"/>
+      <stop offset="100%" style="stop-color:#0d2226"/>
+    </linearGradient>
+    <linearGradient id="cyanAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   style="stop-color:#00e5ff;stop-opacity:0"/>
+      <stop offset="40%"  style="stop-color:#00e5ff"/>
+      <stop offset="100%" style="stop-color:#00b8d4"/>
+    </linearGradient>
+    <radialGradient id="raptorEng" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   style="stop-color:#ffffff"/>
+      <stop offset="20%"  style="stop-color:#00e5ff"/>
+      <stop offset="60%"  style="stop-color:#0097a7;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#004d5a;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="cockpitRaptor" cx="30%" cy="25%" r="70%">
+      <stop offset="0%"   style="stop-color:#80deea"/>
+      <stop offset="50%"  style="stop-color:#00838f;stop-opacity:0.9"/>
+      <stop offset="100%" style="stop-color:#001f26;stop-opacity:0.95"/>
+    </radialGradient>
+    <filter id="engBlurR"><feGaussianBlur stdDeviation="5"/></filter>
+    <filter id="cyanGlow">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Engine plume -->
+  <ellipse cx="12" cy="68" rx="26" ry="13" fill="url(#raptorEng)" filter="url(#engBlurR)"/>
+
+  <!-- Main wedge hull — sharper angle than shuttle, stealth profile -->
+  <polygon points="22,32  56,20  120,22  190,62  238,106  22,106"
+           fill="url(#raptorHull)" stroke="#263238" stroke-width="0.5"/>
+  <polygon points="22,32  56,20  120,22  190,62  238,106  22,106"
+           fill="url(#raptorSheen)"/>
+
+  <!-- Belly plate (dark) -->
+  <polygon points="22,100  238,106  22,106" fill="url(#panelDark)"/>
+  <line x1="22" y1="102" x2="238" y2="106" stroke="#00e5ff" stroke-width="0.6" opacity="0.3"/>
+
+  <!-- Stealth panel facets (angular surface breaks) -->
+  <line x1="56"  y1="20"  x2="56"  y2="106" stroke="#00e5ff" stroke-width="0.5" opacity="0.2"/>
+  <line x1="100" y1="21"  x2="100" y2="106" stroke="#00e5ff" stroke-width="0.5" opacity="0.2"/>
+  <line x1="148" y1="28"  x2="148" y2="106" stroke="#00e5ff" stroke-width="0.5" opacity="0.15"/>
+  <line x1="192" y1="48"  x2="192" y2="106" stroke="#00e5ff" stroke-width="0.5" opacity="0.12"/>
+
+  <!-- Dorsal edge highlight (cyan) -->
+  <polyline points="22,32  56,20  120,22  190,62  238,106"
+            fill="none" stroke="url(#cyanAccent)" stroke-width="1.2" opacity="0.7"/>
+
+  <!-- Flat stealth facet panel (dorsal) -->
+  <polygon points="56,20  120,22  115,30  54,28" fill="#1c2a2f" opacity="0.8"/>
+  <polygon points="120,22  190,62  180,66  112,30" fill="#0d2226" opacity="0.9"/>
+
+  <!-- Cockpit (slanted armored slit) -->
+  <polygon points="172,56  200,70  198,76  170,62" fill="url(#cockpitRaptor)" stroke="#00e5ff" stroke-width="0.8"/>
+  <line x1="174" y1="58" x2="198" y2="72" stroke="#80deea" stroke-width="0.6" opacity="0.5"/>
+
+  <!-- Engine nozzle -->
+  <rect x="14" y="54" width="16" height="28" rx="3" fill="#0a1a1f" stroke="#00838f" stroke-width="1"/>
+  <ellipse cx="22" cy="68" rx="8" ry="8" fill="url(#raptorEng)"/>
+  <ellipse cx="22" cy="68" rx="8" ry="8" fill="none" stroke="#00e5ff" stroke-width="1" opacity="0.8" filter="url(#cyanGlow)"/>
+
+  <!-- Cyan accent lines on engine cowling -->
+  <rect x="14" y="53" width="18" height="2" rx="0.5" fill="#00e5ff" opacity="0.7"/>
+  <rect x="14" y="81" width="18" height="2" rx="0.5" fill="#00e5ff" opacity="0.7"/>
+
+  <!-- ── WEAPONS ─────────────────────────────────────────── -->
+  <!-- Twin missile pods (underside, staggered) -->
+  <rect x="105" y="100" width="56" height="8" rx="2" fill="#1c2a2f" stroke="#00838f" stroke-width="0.7"/>
+  <!-- 4 missile tips -->
+  <rect x="159" y="101" width="20" height="2.5" rx="1" fill="#00e5ff" opacity="0.9" filter="url(#cyanGlow)"/>
+  <rect x="159" y="104" width="20" height="2.5" rx="1" fill="#00e5ff" opacity="0.9" filter="url(#cyanGlow)"/>
+  <rect x="161" y="107" width="14" height="2"   rx="1" fill="#00b8d4" opacity="0.7"/>
+  <line x1="128" y1="100" x2="128" y2="108" stroke="#00838f" stroke-width="0.8"/>
+  <line x1="148" y1="100" x2="148" y2="108" stroke="#00838f" stroke-width="0.8"/>
+
+  <!-- Tri-barrel chaingun (nose low, 3 barrels) -->
+  <rect x="208" y="100" width="50" height="2.5" rx="0.8" fill="#546e7a"/>
+  <rect x="208" y="103" width="50" height="2.5" rx="0.8" fill="#546e7a"/>
+  <rect x="212" y="106" width="44" height="2.5" rx="0.8" fill="#455a64"/>
+  <!-- Muzzle flash dots -->
+  <circle cx="258" cy="101" r="1.5" fill="#00e5ff" filter="url(#cyanGlow)"/>
+  <circle cx="258" cy="104" r="1.5" fill="#00e5ff" filter="url(#cyanGlow)"/>
+  <circle cx="256" cy="107" r="1.2" fill="#00b8d4" opacity="0.7"/>
+  <!-- Gun mount -->
+  <rect x="204" y="98" width="14" height="12" rx="1.5" fill="#263238" stroke="#00838f" stroke-width="0.6"/>
+</svg>

@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 128" width="256" height="128">
+  <defs>
+    <!-- Phantom: silver-gray hull / deep violet tech / acid-lime energy -->
+    <linearGradient id="phantomHull" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   style="stop-color:#b0bec5"/>
+      <stop offset="45%"  style="stop-color:#9e9e9e"/>
+      <stop offset="100%" style="stop-color:#757575"/>
+    </linearGradient>
+    <linearGradient id="phantomSheen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   style="stop-color:#eceff1;stop-opacity:0.55"/>
+      <stop offset="40%"  style="stop-color:#9e9e9e;stop-opacity:0"/>
+      <stop offset="100%" style="stop-color:#212121;stop-opacity:0.55"/>
+    </linearGradient>
+    <linearGradient id="violetPanel" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   style="stop-color:#7b1fa2"/>
+      <stop offset="100%" style="stop-color:#4a148c"/>
+    </linearGradient>
+    <linearGradient id="limeAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   style="stop-color:#aeea00;stop-opacity:0"/>
+      <stop offset="40%"  style="stop-color:#aeea00"/>
+      <stop offset="100%" style="stop-color:#c6ff00"/>
+    </linearGradient>
+    <radialGradient id="phantomEng" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   style="stop-color:#f8bbd0"/>
+      <stop offset="20%"  style="stop-color:#ce93d8"/>
+      <stop offset="55%"  style="stop-color:#6a1b9a;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#4a148c;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="phantomEngCore" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   style="stop-color:#ffffff"/>
+      <stop offset="25%"  style="stop-color:#aeea00"/>
+      <stop offset="100%" style="stop-color:#6a1b9a;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="cockpitPhantom" cx="30%" cy="25%" r="70%">
+      <stop offset="0%"   style="stop-color:#f3e5f5"/>
+      <stop offset="45%"  style="stop-color:#ce93d8;stop-opacity:0.9"/>
+      <stop offset="100%" style="stop-color:#4a148c;stop-opacity:0.95"/>
+    </radialGradient>
+    <filter id="engBlurPh"><feGaussianBlur stdDeviation="5"/></filter>
+    <filter id="limeGlow">
+      <feGaussianBlur stdDeviation="1.8" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Engine plume (violet-to-white) -->
+  <ellipse cx="12" cy="68" rx="30" ry="14" fill="url(#phantomEng)" filter="url(#engBlurPh)"/>
+  <ellipse cx="10" cy="68" rx="12" ry="7"  fill="url(#phantomEngCore)" filter="url(#engBlurPh)"/>
+
+  <!-- Main wedge hull — sleekest angle, long and flat -->
+  <polygon points="22,34  50,20  112,20  188,60  236,106  22,106"
+           fill="url(#phantomHull)" stroke="#9e9e9e" stroke-width="0.5"/>
+  <polygon points="22,34  50,20  112,20  188,60  236,106  22,106"
+           fill="url(#phantomSheen)"/>
+
+  <!-- Underbelly (dark violet) -->
+  <polygon points="100,94  236,106  22,106  22,100  95,100" fill="url(#violetPanel)" opacity="0.9"/>
+  <line x1="22" y1="102" x2="234" y2="106" stroke="#aeea00" stroke-width="0.6" opacity="0.35" filter="url(#limeGlow)"/>
+
+  <!-- Violet tech panel segments (dorsal spine) -->
+  <polygon points="50,20  112,20  108,30  48,30" fill="url(#violetPanel)"/>
+  <polygon points="112,20  188,60  176,66  104,30" fill="url(#violetPanel)" opacity="0.8"/>
+
+  <!-- Lime accent line along dorsal edge -->
+  <polyline points="22,34  50,20  112,20  188,60  236,106"
+            fill="none" stroke="url(#limeAccent)" stroke-width="1.4" filter="url(#limeGlow)"/>
+
+  <!-- Surface panel lines (silver) -->
+  <line x1="60"  y1="20"  x2="60"  y2="106" stroke="#e0e0e0" stroke-width="0.5" opacity="0.3"/>
+  <line x1="100" y1="20"  x2="100" y2="106" stroke="#e0e0e0" stroke-width="0.5" opacity="0.3"/>
+  <line x1="145" y1="28"  x2="145" y2="106" stroke="#e0e0e0" stroke-width="0.5" opacity="0.25"/>
+  <line x1="190" y1="50"  x2="190" y2="106" stroke="#e0e0e0" stroke-width="0.5" opacity="0.2"/>
+
+  <!-- Cockpit (rear-swept, violet canopy) -->
+  <polygon points="168,52  200,68  196,75  164,58" fill="url(#cockpitPhantom)" stroke="#ce93d8" stroke-width="0.8"/>
+  <line x1="170" y1="54" x2="194" y2="70" stroke="#f3e5f5" stroke-width="0.5" opacity="0.5"/>
+
+  <!-- Engine nozzle (with violet ring) -->
+  <rect x="14" y="56" width="18" height="24" rx="3" fill="#1a0a22" stroke="#6a1b9a" stroke-width="1"/>
+  <ellipse cx="23" cy="68" rx="9" ry="9" fill="url(#phantomEngCore)"/>
+  <ellipse cx="23" cy="68" rx="9" ry="9" fill="none" stroke="#aeea00" stroke-width="1" opacity="0.8" filter="url(#limeGlow)"/>
+
+  <!-- Lime accent rings on cowling -->
+  <rect x="14" y="54" width="20" height="2" rx="0.5" fill="#aeea00" opacity="0.8" filter="url(#limeGlow)"/>
+  <rect x="14" y="80" width="20" height="2" rx="0.5" fill="#aeea00" opacity="0.8" filter="url(#limeGlow)"/>
+
+  <!-- ── WEAPONS ─────────────────────────────────────────── -->
+  <!-- Smart missile launcher (topside, violet casing) -->
+  <rect x="115" y="94" width="54" height="10" rx="2" fill="url(#violetPanel)" stroke="#7b1fa2" stroke-width="0.6"/>
+  <!-- 3 guided missile tips (lime glow warheads) -->
+  <rect x="167" y="95"  width="22" height="3" rx="1" fill="#616161"/>
+  <rect x="167" y="99"  width="22" height="3" rx="1" fill="#616161"/>
+  <rect x="169" y="103" width="16" height="2.5" rx="1" fill="#757575" opacity="0.8"/>
+  <!-- Lime warhead tips -->
+  <rect x="187" y="95"  width="6" height="3" rx="0.5" fill="#aeea00" filter="url(#limeGlow)"/>
+  <rect x="187" y="99"  width="6" height="3" rx="0.5" fill="#aeea00" filter="url(#limeGlow)"/>
+  <rect x="183" y="103" width="5" height="2.5" rx="0.5" fill="#c6ff00" opacity="0.8" filter="url(#limeGlow)"/>
+  <line x1="138" y1="94" x2="138" y2="104" stroke="#6a1b9a" stroke-width="0.8"/>
+  <line x1="158" y1="94" x2="158" y2="104" stroke="#6a1b9a" stroke-width="0.8"/>
+
+  <!-- Twin rail-gun barrels (nose, long and slender) -->
+  <rect x="204" y="101" width="54" height="2.5" rx="0.8" fill="#bdbdbd"/>
+  <rect x="204" y="105" width="54" height="2.5" rx="0.8" fill="#bdbdbd"/>
+  <!-- Rail field glow (lime) between barrels -->
+  <rect x="220" y="101" width="38" height="7" rx="0.5" fill="#aeea00" opacity="0.12" filter="url(#limeGlow)"/>
+  <!-- Muzzle glow -->
+  <rect x="255" y="101" width="4" height="2.5" rx="0.5" fill="#aeea00" filter="url(#limeGlow)"/>
+  <rect x="255" y="105" width="4" height="2.5" rx="0.5" fill="#aeea00" filter="url(#limeGlow)"/>
+  <!-- Gun mount (violet) -->
+  <rect x="200" y="99" width="14" height="11" rx="2" fill="url(#violetPanel)" stroke="#7b1fa2" stroke-width="0.6"/>
+</svg>
