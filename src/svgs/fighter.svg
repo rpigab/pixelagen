@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 128" width="256" height="128">
+  <defs>
+    <!-- Hull main gradient - deep blue to electric cyan -->
+    <linearGradient id="hullMain" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0a0a2e"/>
+      <stop offset="30%" style="stop-color:#0d3080"/>
+      <stop offset="70%" style="stop-color:#1565c0"/>
+      <stop offset="100%" style="stop-color:#00e5ff"/>
+    </linearGradient>
+    <!-- Hull top sheen -->
+    <linearGradient id="hullSheen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#80d8ff;stop-opacity:0.6"/>
+      <stop offset="50%" style="stop-color:#1565c0;stop-opacity:0"/>
+      <stop offset="100%" style="stop-color:#000080;stop-opacity:0.4"/>
+    </linearGradient>
+    <!-- Engine glow -->
+    <radialGradient id="engineGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ff6d00"/>
+      <stop offset="40%" style="stop-color:#ff3d00"/>
+      <stop offset="70%" style="stop-color:#dd2c00;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#b71c1c;stop-opacity:0"/>
+    </radialGradient>
+    <!-- Engine inner glow -->
+    <radialGradient id="engineCore" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="30%" style="stop-color:#ffff00"/>
+      <stop offset="100%" style="stop-color:#ff6d00;stop-opacity:0"/>
+    </radialGradient>
+    <!-- Cockpit glass -->
+    <radialGradient id="cockpitGlass" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#e0f7fa"/>
+      <stop offset="40%" style="stop-color:#00bcd4;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#006064;stop-opacity:0.9"/>
+    </radialGradient>
+    <!-- Wing gradient -->
+    <linearGradient id="wingGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a237e"/>
+      <stop offset="50%" style="stop-color:#283593"/>
+      <stop offset="100%" style="stop-color:#0d1b5e"/>
+    </linearGradient>
+    <!-- Accent stripe -->
+    <linearGradient id="accentStripe" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f50057;stop-opacity:0"/>
+      <stop offset="30%" style="stop-color:#f50057"/>
+      <stop offset="70%" style="stop-color:#ff4081"/>
+      <stop offset="100%" style="stop-color:#ff4081;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="engineBlur">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+    <filter id="glowFilter">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Engine glow (behind ship) -->
+  <ellipse cx="18" cy="64" rx="22" ry="14" fill="url(#engineGlow)" filter="url(#engineBlur)"/>
+  <ellipse cx="10" cy="64" rx="10" ry="7" fill="url(#engineCore)" filter="url(#engineBlur)"/>
+
+  <!-- Lower wing -->
+  <polygon points="60,72 160,90 180,110 40,110 20,90" fill="url(#wingGrad)" stroke="#1a237e" stroke-width="0.5"/>
+  <polygon points="60,72 160,90 180,110 40,110 20,90" fill="url(#hullSheen)"/>
+  <!-- Lower wing accent -->
+  <line x1="40" y1="100" x2="170" y2="100" stroke="#00e5ff" stroke-width="1" opacity="0.5"/>
+
+  <!-- Upper wing -->
+  <polygon points="60,56 160,38 180,18 40,18 20,38" fill="url(#wingGrad)" stroke="#1a237e" stroke-width="0.5"/>
+  <polygon points="60,56 160,38 180,18 40,18 20,38" fill="url(#hullSheen)"/>
+  <!-- Upper wing accent -->
+  <line x1="40" y1="28" x2="170" y2="28" stroke="#00e5ff" stroke-width="1" opacity="0.5"/>
+
+  <!-- Main hull body -->
+  <polygon points="20,44 200,52 245,64 200,76 20,84" fill="url(#hullMain)"/>
+  <polygon points="20,44 200,52 245,64 200,76 20,84" fill="url(#hullSheen)"/>
+
+  <!-- Hull detail panel lines -->
+  <line x1="80" y1="50" x2="80" y2="78" stroke="#00e5ff" stroke-width="0.8" opacity="0.4"/>
+  <line x1="130" y1="52" x2="130" y2="76" stroke="#00e5ff" stroke-width="0.8" opacity="0.4"/>
+  <line x1="170" y1="53" x2="170" y2="75" stroke="#00e5ff" stroke-width="0.8" opacity="0.3"/>
+
+  <!-- Accent stripe along hull -->
+  <rect x="20" y="61" width="210" height="6" fill="url(#accentStripe)" opacity="0.8"/>
+
+  <!-- Cockpit -->
+  <ellipse cx="210" cy="64" rx="28" ry="16" fill="url(#cockpitGlass)" stroke="#00e5ff" stroke-width="1"/>
+  <!-- Cockpit highlight -->
+  <ellipse cx="205" cy="58" rx="14" ry="7" fill="#e0f7fa" opacity="0.3"/>
+
+  <!-- Nose tip -->
+  <polygon points="238,60 250,64 238,68" fill="#00e5ff" opacity="0.9"/>
+
+  <!-- Engine nozzle -->
+  <rect x="14" y="56" width="16" height="16" rx="2" fill="#0a0a2e" stroke="#304ffe" stroke-width="1"/>
+  <ellipse cx="22" cy="64" rx="7" ry="7" fill="url(#engineCore)"/>
+
+  <!-- Wing cannon tips -->
+  <rect x="175" y="14" width="30" height="5" rx="1" fill="#00e5ff" opacity="0.8"/>
+  <rect x="175" y="109" width="30" height="5" rx="1" fill="#00e5ff" opacity="0.8"/>
+
+  <!-- Hull rivets / tech details -->
+  <circle cx="100" cy="64" r="2" fill="#00e5ff" opacity="0.6"/>
+  <circle cx="140" cy="64" r="2" fill="#00e5ff" opacity="0.6"/>
+  <circle cx="160" cy="64" r="1.5" fill="#80d8ff" opacity="0.5"/>
+</svg>

@@ -1,0 +1,14 @@
+{
+  "name": "pixelagen",
+  "version": "1.0.0",
+  "description": "Pixel art spaceship sprite generator for side-scrolling space shooter",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "build:svg": "node scripts/build.js --svg-only",
+    "build:sprites": "node scripts/build.js --sprites-only",
+    "preview": "npx serve docs -p 3000"
+  },
+  "dependencies": {
+    "sharp": "^0.33.4"
+  }
+}

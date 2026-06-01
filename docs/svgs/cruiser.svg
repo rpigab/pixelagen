@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 128" width="256" height="128">
+  <defs>
+    <!-- Heavy armor gradient - gunmetal to gold -->
+    <linearGradient id="armorMain" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a1a"/>
+      <stop offset="25%" style="stop-color:#4a3728"/>
+      <stop offset="60%" style="stop-color:#6d4c41"/>
+      <stop offset="100%" style="stop-color:#ff8f00"/>
+    </linearGradient>
+    <linearGradient id="armorSheen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffe082;stop-opacity:0.5"/>
+      <stop offset="40%" style="stop-color:#ff8f00;stop-opacity:0"/>
+      <stop offset="100%" style="stop-color:#3e2723;stop-opacity:0.6"/>
+    </linearGradient>
+    <linearGradient id="plateGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#37474f"/>
+      <stop offset="50%" style="stop-color:#263238"/>
+      <stop offset="100%" style="stop-color:#1c2a30"/>
+    </linearGradient>
+    <!-- Dual engine glow - purple plasma -->
+    <radialGradient id="eng1Glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ea80fc"/>
+      <stop offset="40%" style="stop-color:#aa00ff"/>
+      <stop offset="100%" style="stop-color:#4a148c;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="eng1Core" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="25%" style="stop-color:#ea80fc"/>
+      <stop offset="100%" style="stop-color:#aa00ff;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="turretGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffff00"/>
+      <stop offset="60%" style="stop-color:#ff6f00"/>
+      <stop offset="100%" style="stop-color:#e65100;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="cockpitHeavy" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#f3e5f5"/>
+      <stop offset="40%" style="stop-color:#ce93d8;stop-opacity:0.9"/>
+      <stop offset="100%" style="stop-color:#4a148c;stop-opacity:0.95"/>
+    </radialGradient>
+    <filter id="engBlur">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Engine plumes (behind) -->
+  <ellipse cx="16" cy="45" rx="20" ry="11" fill="url(#eng1Glow)" filter="url(#engBlur)"/>
+  <ellipse cx="8" cy="45" rx="9" ry="6" fill="url(#eng1Core)" filter="url(#engBlur)"/>
+  <ellipse cx="16" cy="83" rx="20" ry="11" fill="url(#eng1Glow)" filter="url(#engBlur)"/>
+  <ellipse cx="8" cy="83" rx="9" ry="6" fill="url(#eng1Core)" filter="url(#engBlur)"/>
+
+  <!-- Bottom armor plate / underbelly -->
+  <polygon points="25,78 220,86 240,100 220,114 25,110" fill="url(#plateGrad)" stroke="#37474f" stroke-width="0.5"/>
+
+  <!-- Top armor plate -->
+  <polygon points="25,50 220,42 240,28 220,14 25,18" fill="url(#plateGrad)" stroke="#37474f" stroke-width="0.5"/>
+
+  <!-- Top plate highlight -->
+  <polygon points="30,20 215,15 230,20 30,26" fill="#546e7a" opacity="0.5"/>
+
+  <!-- Main heavy hull -->
+  <polygon points="18,38 230,44 252,64 230,84 18,90" fill="url(#armorMain)"/>
+  <polygon points="18,38 230,44 252,64 230,84 18,90" fill="url(#armorSheen)"/>
+
+  <!-- Armor panel segments -->
+  <line x1="60" y1="43" x2="60" y2="85" stroke="#ff8f00" stroke-width="1" opacity="0.3"/>
+  <line x1="110" y1="44" x2="110" y2="84" stroke="#ff8f00" stroke-width="1" opacity="0.3"/>
+  <line x1="160" y1="44" x2="160" y2="84" stroke="#ff8f00" stroke-width="1" opacity="0.3"/>
+  <line x1="200" y1="45" x2="200" y2="83" stroke="#ff8f00" stroke-width="1" opacity="0.3"/>
+
+  <!-- Hull armor bolts row -->
+  <circle cx="55" cy="64" r="3" fill="#5d4037" stroke="#ff8f00" stroke-width="0.8"/>
+  <circle cx="105" cy="64" r="3" fill="#5d4037" stroke="#ff8f00" stroke-width="0.8"/>
+  <circle cx="155" cy="64" r="3" fill="#5d4037" stroke="#ff8f00" stroke-width="0.8"/>
+  <circle cx="195" cy="64" r="3" fill="#5d4037" stroke="#ff8f00" stroke-width="0.8"/>
+
+  <!-- Top turret -->
+  <rect x="85" y="34" width="40" height="16" rx="2" fill="#263238" stroke="#ff8f00" stroke-width="0.8"/>
+  <rect x="125" y="37" width="25" height="10" rx="1" fill="#37474f" stroke="#546e7a" stroke-width="0.5"/>
+  <rect x="148" y="39" width="20" height="6" rx="1" fill="#ff8f00" opacity="0.7"/>
+
+  <!-- Bottom turret -->
+  <rect x="85" y="78" width="40" height="16" rx="2" fill="#263238" stroke="#ff8f00" stroke-width="0.8"/>
+  <rect x="125" y="81" width="25" height="10" rx="1" fill="#37474f" stroke="#546e7a" stroke-width="0.5"/>
+  <rect x="148" y="83" width="20" height="6" rx="1" fill="#ff8f00" opacity="0.7"/>
+
+  <!-- Cockpit (armored) -->
+  <ellipse cx="222" cy="64" rx="22" ry="14" fill="url(#cockpitHeavy)" stroke="#ce93d8" stroke-width="1"/>
+  <ellipse cx="217" cy="58" rx="10" ry="6" fill="#f3e5f5" opacity="0.25"/>
+
+  <!-- Nose -->
+  <polygon points="242,58 254,64 242,70" fill="#ff8f00"/>
+  <line x1="242" y1="58" x2="254" y2="64" stroke="#ffe082" stroke-width="1"/>
+
+  <!-- Dual engine nozzles -->
+  <rect x="12" y="36" width="20" height="18" rx="3" fill="#1a1a1a" stroke="#4a148c" stroke-width="1"/>
+  <ellipse cx="22" cy="45" rx="8" ry="8" fill="url(#eng1Core)"/>
+  <rect x="12" y="74" width="20" height="18" rx="3" fill="#1a1a1a" stroke="#4a148c" stroke-width="1"/>
+  <ellipse cx="22" cy="83" rx="8" ry="8" fill="url(#eng1Core)"/>
+
+  <!-- Gold accent stripe -->
+  <rect x="25" y="61" width="220" height="6" fill="#ff8f00" opacity="0.2"/>
+  <line x1="25" y1="64" x2="245" y2="64" stroke="#ffe082" stroke-width="0.5" opacity="0.4"/>
+</svg>

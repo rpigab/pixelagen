@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 128" width="256" height="128">
+  <defs>
+    <!-- Bomber: dark crimson / magenta threat -->
+    <linearGradient id="bomberHull" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a0010"/>
+      <stop offset="30%" style="stop-color:#4a0020"/>
+      <stop offset="65%" style="stop-color:#880e4f"/>
+      <stop offset="100%" style="stop-color:#f50057"/>
+    </linearGradient>
+    <linearGradient id="bomberSheen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff80ab;stop-opacity:0.55"/>
+      <stop offset="45%" style="stop-color:#880e4f;stop-opacity:0"/>
+      <stop offset="100%" style="stop-color:#1a0010;stop-opacity:0.6"/>
+    </linearGradient>
+    <linearGradient id="bomberWing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a0020"/>
+      <stop offset="50%" style="stop-color:#311b22"/>
+      <stop offset="100%" style="stop-color:#1a0010"/>
+    </linearGradient>
+    <!-- Triple engine glow - red plasma -->
+    <radialGradient id="bombEngGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ff6e40"/>
+      <stop offset="35%" style="stop-color:#f50057"/>
+      <stop offset="100%" style="stop-color:#880e4f;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="bombEngCore" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="20%" style="stop-color:#ff6e40"/>
+      <stop offset="100%" style="stop-color:#f50057;stop-opacity:0"/>
+    </radialGradient>
+    <!-- Bomb bay glow -->
+    <radialGradient id="bayGlow" cx="50%" cy="100%" r="80%">
+      <stop offset="0%" style="stop-color:#ff6e40;stop-opacity:0.9"/>
+      <stop offset="60%" style="stop-color:#f50057;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#4a0020;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="cockpitBomber" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#fce4ec"/>
+      <stop offset="40%" style="stop-color:#f48fb1;stop-opacity:0.9"/>
+      <stop offset="100%" style="stop-color:#880e4f;stop-opacity:0.95"/>
+    </radialGradient>
+    <filter id="bombBlur">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+  </defs>
+
+  <!-- Triple engine plumes -->
+  <ellipse cx="16" cy="40" rx="22" ry="10" fill="url(#bombEngGlow)" filter="url(#bombBlur)"/>
+  <ellipse cx="7"  cy="40" rx="9"  ry="5"  fill="url(#bombEngCore)" filter="url(#bombBlur)"/>
+  <ellipse cx="16" cy="64" rx="22" ry="10" fill="url(#bombEngGlow)" filter="url(#bombBlur)"/>
+  <ellipse cx="7"  cy="64" rx="9"  ry="5"  fill="url(#bombEngCore)" filter="url(#bombBlur)"/>
+  <ellipse cx="16" cy="88" rx="22" ry="10" fill="url(#bombEngGlow)" filter="url(#bombBlur)"/>
+  <ellipse cx="7"  cy="88" rx="9"  ry="5"  fill="url(#bombEngCore)" filter="url(#bombBlur)"/>
+
+  <!-- Massive upper wing -->
+  <polygon points="55,54 200,22 228,8 230,22 175,34 65,60" fill="url(#bomberWing)" stroke="#4a0020" stroke-width="0.5"/>
+  <polygon points="55,54 200,22 228,8 230,22 175,34 65,60" fill="url(#bomberSheen)"/>
+
+  <!-- Massive lower wing -->
+  <polygon points="55,74 200,106 228,120 230,106 175,94 65,68" fill="url(#bomberWing)" stroke="#4a0020" stroke-width="0.5"/>
+  <polygon points="55,74 200,106 228,120 230,106 175,94 65,68" fill="url(#bomberSheen)"/>
+
+  <!-- Wing edge lines (menacing) -->
+  <line x1="230" y1="8"   x2="56"  y2="54"  stroke="#f50057" stroke-width="1.2" opacity="0.6"/>
+  <line x1="230" y1="120" x2="56"  y2="74"  stroke="#f50057" stroke-width="1.2" opacity="0.6"/>
+
+  <!-- Wide hull (thick bomber body) -->
+  <polygon points="20,46 230,50 250,64 230,78 20,82" fill="url(#bomberHull)"/>
+  <polygon points="20,46 230,50 250,64 230,78 20,82" fill="url(#bomberSheen)"/>
+
+  <!-- Bomb bay doors (underside detail) -->
+  <rect x="70" y="72" width="100" height="8" rx="1" fill="url(#bayGlow)"/>
+  <line x1="70" y1="76" x2="170" y2="76" stroke="#ff6e40" stroke-width="0.8" opacity="0.5"/>
+  <rect x="80" y="72" width="8" height="8" rx="0.5" fill="#ff6e40" opacity="0.4"/>
+  <rect x="115" y="72" width="8" height="8" rx="0.5" fill="#ff6e40" opacity="0.4"/>
+  <rect x="150" y="72" width="8" height="8" rx="0.5" fill="#ff6e40" opacity="0.4"/>
+
+  <!-- Hull panel lines -->
+  <line x1="70"  y1="50" x2="70"  y2="78" stroke="#f50057" stroke-width="0.8" opacity="0.35"/>
+  <line x1="120" y1="51" x2="120" y2="77" stroke="#f50057" stroke-width="0.8" opacity="0.35"/>
+  <line x1="170" y1="51" x2="170" y2="77" stroke="#f50057" stroke-width="0.8" opacity="0.35"/>
+  <line x1="210" y1="52" x2="210" y2="76" stroke="#f50057" stroke-width="0.8" opacity="0.3"/>
+
+  <!-- Cockpit (wide, panoramic) -->
+  <ellipse cx="218" cy="64" rx="26" ry="13" fill="url(#cockpitBomber)" stroke="#f48fb1" stroke-width="1"/>
+  <ellipse cx="212" cy="58" rx="12" ry="6" fill="#fce4ec" opacity="0.25"/>
+
+  <!-- Blunt nose -->
+  <polygon points="240,58 254,64 240,70" fill="#f50057"/>
+  <polygon points="242,60 254,64 242,68" fill="#ff80ab" opacity="0.5"/>
+
+  <!-- Triple engine nozzles -->
+  <rect x="12" y="31" width="18" height="18" rx="3" fill="#1a0010" stroke="#880e4f" stroke-width="1"/>
+  <ellipse cx="21" cy="40" rx="7" ry="7" fill="url(#bombEngCore)"/>
+  <rect x="12" y="55" width="18" height="18" rx="3" fill="#1a0010" stroke="#880e4f" stroke-width="1"/>
+  <ellipse cx="21" cy="64" rx="7" ry="7" fill="url(#bombEngCore)"/>
+  <rect x="12" y="79" width="18" height="18" rx="3" fill="#1a0010" stroke="#880e4f" stroke-width="1"/>
+  <ellipse cx="21" cy="88" rx="7" ry="7" fill="url(#bombEngCore)"/>
+
+  <!-- Wing mounted missiles -->
+  <rect x="195" y="6"   width="35" height="8" rx="2" fill="#37474f" stroke="#f50057" stroke-width="0.5"/>
+  <polygon points="228,8 235,10 228,12" fill="#f50057"/>
+  <rect x="195" y="114" width="35" height="8" rx="2" fill="#37474f" stroke="#f50057" stroke-width="0.5"/>
+  <polygon points="228,114 235,118 228,122" fill="#f50057"/>
+
+  <!-- Centerline accent -->
+  <line x1="22" y1="64" x2="242" y2="64" stroke="#ff80ab" stroke-width="0.5" opacity="0.3"/>
+</svg>
