@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 128" width="256" height="128">
+  <defs>
+    <!-- Carrier: flat-top mothership — cool grey hull / navy deck / orange landing lights -->
+    <linearGradient id="carHull" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#b0bec5"/>
+      <stop offset="45%"  stop-color="#78909c"/>
+      <stop offset="100%" stop-color="#37474f"/>
+    </linearGradient>
+    <linearGradient id="carDeck" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#1a237e"/>
+      <stop offset="50%"  stop-color="#283593"/>
+      <stop offset="100%" stop-color="#0d1442"/>
+    </linearGradient>
+    <linearGradient id="carUnder" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#455a64"/>
+      <stop offset="100%" stop-color="#1c272d"/>
+    </linearGradient>
+    <linearGradient id="carSheen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#eceff1" stop-opacity="0.5"/>
+      <stop offset="50%"  stop-color="#78909c" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#0d1216" stop-opacity="0.55"/>
+    </linearGradient>
+    <radialGradient id="carEng" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#ffffff"/>
+      <stop offset="30%"  stop-color="#80d8ff"/>
+      <stop offset="70%"  stop-color="#0288d1" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#01579b" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="carOrange" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#ffe0b2"/>
+      <stop offset="100%" stop-color="#fb8c00"/>
+    </linearGradient>
+    <filter id="carBlur"><feGaussianBlur stdDeviation="4.5"/></filter>
+    <filter id="carGlow"><feGaussianBlur stdDeviation="1.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+
+  <!-- Triple heavy ion drives -->
+  <ellipse cx="10" cy="42" rx="22" ry="9"  fill="url(#carEng)" filter="url(#carBlur)"/>
+  <ellipse cx="8"  cy="64" rx="26" ry="11" fill="url(#carEng)" filter="url(#carBlur)"/>
+  <ellipse cx="10" cy="86" rx="22" ry="9"  fill="url(#carEng)" filter="url(#carBlur)"/>
+
+  <!-- Long flat-top hull -->
+  <polygon points="26,40 220,40 250,52 250,76 220,88 26,88" fill="url(#carHull)" stroke="#546e7a" stroke-width="0.6"/>
+  <polygon points="26,40 220,40 250,52 250,76 220,88 26,88" fill="url(#carSheen)"/>
+
+  <!-- Flight deck (navy top surface) -->
+  <polygon points="26,40 220,40 250,52 30,52" fill="url(#carDeck)"/>
+  <!-- Deck centerline (runway markings) -->
+  <line x1="34" y1="46" x2="240" y2="46" stroke="#ffe0b2" stroke-width="1" stroke-dasharray="6 5" opacity="0.7"/>
+  <!-- Launch catapult rails -->
+  <line x1="50"  y1="42" x2="240" y2="50" stroke="#90a4ae" stroke-width="0.6" opacity="0.5"/>
+  <line x1="50"  y1="50" x2="240" y2="52" stroke="#90a4ae" stroke-width="0.6" opacity="0.5"/>
+
+  <!-- Underside hull -->
+  <polygon points="26,76 250,76 220,88 26,88" fill="url(#carUnder)"/>
+  <line x1="26" y1="76" x2="240" y2="76" stroke="#1c272d" stroke-width="1"/>
+
+  <!-- Hangar bay doors (open, glowing interior) on the side -->
+  <g>
+    <rect x="60"  y="58" width="22" height="14" rx="1" fill="#0a0d12" stroke="#546e7a" stroke-width="0.7"/>
+    <rect x="62"  y="60" width="18" height="10" fill="url(#carOrange)" opacity="0.55" filter="url(#carGlow)"/>
+    <rect x="100" y="58" width="22" height="14" rx="1" fill="#0a0d12" stroke="#546e7a" stroke-width="0.7"/>
+    <rect x="102" y="60" width="18" height="10" fill="url(#carOrange)" opacity="0.55" filter="url(#carGlow)"/>
+    <rect x="140" y="58" width="22" height="14" rx="1" fill="#0a0d12" stroke="#546e7a" stroke-width="0.7"/>
+    <rect x="142" y="60" width="18" height="10" fill="url(#carOrange)" opacity="0.55" filter="url(#carGlow)"/>
+    <rect x="180" y="58" width="22" height="14" rx="1" fill="#0a0d12" stroke="#546e7a" stroke-width="0.7"/>
+    <rect x="182" y="60" width="18" height="10" fill="url(#carOrange)" opacity="0.55" filter="url(#carGlow)"/>
+  </g>
+  <!-- Docked drone silhouettes in two of the bays -->
+  <polygon points="64,66 76,63 78,66 76,69 64,68" fill="#263238"/>
+  <polygon points="144,66 156,63 158,66 156,69 144,68" fill="#263238"/>
+
+  <!-- Hull panel seams -->
+  <line x1="90"  y1="52" x2="90"  y2="88" stroke="#37474f" stroke-width="0.6" opacity="0.5"/>
+  <line x1="130" y1="52" x2="130" y2="88" stroke="#37474f" stroke-width="0.6" opacity="0.5"/>
+  <line x1="170" y1="52" x2="170" y2="88" stroke="#37474f" stroke-width="0.6" opacity="0.5"/>
+  <line x1="210" y1="52" x2="210" y2="88" stroke="#37474f" stroke-width="0.6" opacity="0.4"/>
+
+  <!-- Command island (superstructure, mid-deck) -->
+  <polygon points="118,40 156,40 152,18 124,18" fill="url(#carUnder)" stroke="#546e7a" stroke-width="0.6"/>
+  <rect x="126" y="22" width="22" height="4" rx="1" fill="url(#carOrange)" filter="url(#carGlow)"/>
+  <rect x="128" y="30" width="18" height="3" rx="1" fill="#80d8ff" opacity="0.7" filter="url(#carGlow)"/>
+  <!-- Radar dish + masts on island -->
+  <line x1="138" y1="18" x2="138" y2="6" stroke="#b0bec5" stroke-width="1.2"/>
+  <ellipse cx="143" cy="9" rx="5" ry="2.5" fill="none" stroke="#b0bec5" stroke-width="0.9"/>
+  <circle cx="138" cy="5" r="1.6" fill="#ff5252" filter="url(#carGlow)"/>
+  <line x1="128" y1="18" x2="126" y2="9" stroke="#90a4ae" stroke-width="0.8"/>
+
+  <!-- Bow prow -->
+  <polygon points="250,52 250,76 240,64" fill="url(#carUnder)"/>
+  <polygon points="244,60 252,64 244,68" fill="#b0bec5"/>
+
+  <!-- Triple engine nozzles -->
+  <rect x="14" y="36" width="16" height="12" rx="2" fill="#0d1216" stroke="#455a64" stroke-width="1"/>
+  <rect x="12" y="56" width="18" height="16" rx="2" fill="#0d1216" stroke="#455a64" stroke-width="1"/>
+  <rect x="14" y="80" width="16" height="12" rx="2" fill="#0d1216" stroke="#455a64" stroke-width="1"/>
+  <ellipse cx="22" cy="42" rx="5" ry="4" fill="url(#carEng)"/>
+  <ellipse cx="21" cy="64" rx="7" ry="6" fill="url(#carEng)"/>
+  <ellipse cx="22" cy="86" rx="5" ry="4" fill="url(#carEng)"/>
+
+  <!-- Landing strobe lights along deck edge -->
+  <g filter="url(#carGlow)">
+    <circle cx="40"  cy="52" r="1.5" fill="#fb8c00"/>
+    <circle cx="70"  cy="52" r="1.5" fill="#fb8c00"/>
+    <circle cx="100" cy="52" r="1.5" fill="#fb8c00"/>
+    <circle cx="130" cy="52" r="1.5" fill="#fb8c00"/>
+    <circle cx="160" cy="52" r="1.5" fill="#fb8c00"/>
+    <circle cx="190" cy="52" r="1.5" fill="#fb8c00"/>
+    <circle cx="220" cy="52" r="1.5" fill="#fb8c00"/>
+  </g>
+
+  <!-- ── WEAPONS — defensive point-defense turrets (small, this is a carrier) ── -->
+  <!-- Forward dual flak cannon -->
+  <rect x="216" y="58" width="12" height="9" rx="2" fill="url(#carUnder)" stroke="#546e7a" stroke-width="0.6"/>
+  <rect x="226" y="59" width="24" height="2" rx="0.6" fill="#90a4ae"/>
+  <rect x="226" y="64" width="24" height="2" rx="0.6" fill="#90a4ae"/>
+  <rect x="248" y="59" width="3" height="2" fill="#fb8c00" filter="url(#carGlow)"/>
+  <rect x="248" y="64" width="3" height="2" fill="#fb8c00" filter="url(#carGlow)"/>
+  <!-- Dorsal CIWS turret -->
+  <rect x="196" y="34" width="10" height="6" rx="2" fill="url(#carUnder)" stroke="#546e7a" stroke-width="0.5"/>
+  <rect x="204" y="35" width="16" height="1.6" rx="0.5" fill="#90a4ae"/>
+  <rect x="204" y="37.5" width="16" height="1.6" rx="0.5" fill="#90a4ae"/>
+  <!-- Ventral missile pod -->
+  <rect x="150" y="88" width="36" height="8" rx="2" fill="url(#carUnder)" stroke="#37474f" stroke-width="0.6"/>
+  <rect x="184" y="89" width="14" height="2.4" rx="0.8" fill="#37474f"/>
+  <rect x="184" y="92.5" width="14" height="2.4" rx="0.8" fill="#37474f"/>
+  <rect x="196" y="89" width="4" height="2.4" fill="#fb8c00" filter="url(#carGlow)"/>
+  <rect x="196" y="92.5" width="4" height="2.4" fill="#fb8c00" filter="url(#carGlow)"/>
+</svg>

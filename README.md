@@ -61,6 +61,23 @@ Silhouette en triangle rectangle : **bord court à gauche** (réacteur), **bord 
 | `warthog.svg` | bleu-gris / olive militaire / rouge danger | canon rotatif 7 canons (style GAU-8) + double rack missiles | A-10 Warthog |
 | `phantom.svg` | argent / violet profond / lime acide | rail-guns jumeaux (champ énergie) + missiles ogives lumineuses | vaisseau fantôme sci-fi |
 
+### Série 3 — flotte étendue (silhouettes & rôles variés)
+
+Dix vaisseaux explorant des silhouettes franchement différentes (aiguille, cuirassé pavé, créature organique, aile volante, plateforme industrielle…) et un détail plus dense que les séries précédentes : plaques multicouches, hublots éclairés, feux de navigation, antennes, greebles. Conventions respectées : réacteur à gauche, nez et armes à droite, fond transparent, préfixe de dégradé unique par fichier.
+
+| Fichier | Rôle | Couleurs dominantes | Caractéristiques |
+|---|---|---|---|
+| `interceptor.svg` | intercepteur rapide | charbon / cramoisi / or | aiguille effilée, canards inversés + ailes en flèche, post-combustion jumelle |
+| `dreadnought.svg` | cuirassé capital | acier ardoise / navy / ambre | coque-pavé massive, hublots de pont, pont de commandement, tourelles dorsale/ventrale |
+| `leviathan.svg` | créature biomécanique | violet chitine / sarcelle / cyan bioluminescent | corps organique courbe, nodules lumineux, dard acide + mandibules |
+| `carrier.svg` | porte-vaisseaux mère | gris froid / pont navy / feux orange | pont plat, baies de hangar éclairées, îlot radar, drones amarrés, défense rapprochée |
+| `marauder.svg` | canonnière pirate | acier rouillé / rouge sang / laiton terni | coque asymétrique rapiécée, rivets/coulures, décalque tête de mort, harpon + autocanons |
+| `nighthawk.svg` | aile volante furtive | quasi-noir / indigo / bleu glace | delta facetté, bords d'attaque lumineux, soute interne, rail-guns affleurants |
+| `prospector.svg` | foreuse industrielle | gunmetal / jaune danger / orange rouille | coque trapue, bandes de danger, foreuse conique + pince hydraulique + laser de découpe |
+| `aurora.svg` | explorateur scientifique | blanc perle / sarcelle / or | coque épurée, panneaux solaires, parabole capteur, antennes, hublots de labo |
+| `hornet.svg` | ruche porte-drones | noir/jaune guêpe / ambre | corps segmenté (abdomen), alvéoles hexagonales, essaim de drones, dard venimeux |
+| `tempest.svg` | destroyer plasma | chrome sombre / bleu électrique / magenta | conduit de plasma exposé pulsant, ailerons énergétiques, projecteurs de particules jumeaux |
+
 ---
 
 ## Structure du projet

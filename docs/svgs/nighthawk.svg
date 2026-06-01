@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 128" width="256" height="128">
+  <defs>
+    <!-- Nighthawk: stealth flying-wing — near-black faceted hull / deep indigo / ice-blue edge glow -->
+    <linearGradient id="nhHull" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#05060a"/>
+      <stop offset="50%"  stop-color="#10131c"/>
+      <stop offset="100%" stop-color="#1f2740"/>
+    </linearGradient>
+    <linearGradient id="nhFacetTop" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#283655"/>
+      <stop offset="100%" stop-color="#0a0e18"/>
+    </linearGradient>
+    <linearGradient id="nhFacetBot" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#0a0e18"/>
+      <stop offset="100%" stop-color="#161d30"/>
+    </linearGradient>
+    <linearGradient id="nhEdge" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#40c4ff" stop-opacity="0"/>
+      <stop offset="50%"  stop-color="#40c4ff"/>
+      <stop offset="100%" stop-color="#b3e5fc"/>
+    </linearGradient>
+    <radialGradient id="nhEng" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#e1f5fe"/>
+      <stop offset="30%"  stop-color="#40c4ff"/>
+      <stop offset="70%"  stop-color="#0277bd" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#01579b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="nhCockpit" cx="35%" cy="30%" r="72%">
+      <stop offset="0%"   stop-color="#b3e5fc"/>
+      <stop offset="45%"  stop-color="#0288d1" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#01233a" stop-opacity="0.95"/>
+    </radialGradient>
+    <filter id="nhBlur"><feGaussianBlur stdDeviation="3"/></filter>
+    <filter id="nhGlow"><feGaussianBlur stdDeviation="1.6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+
+  <!-- Subdued stealth exhaust (faint, slit vents) -->
+  <ellipse cx="16" cy="56" rx="22" ry="5" fill="url(#nhEng)" filter="url(#nhBlur)" opacity="0.8"/>
+  <ellipse cx="16" cy="72" rx="22" ry="5" fill="url(#nhEng)" filter="url(#nhBlur)" opacity="0.8"/>
+
+  <!-- Single broad flying-wing delta -->
+  <polygon points="28,64 60,22 110,30 250,64 110,98 60,106" fill="url(#nhHull)" stroke="#1f2740" stroke-width="0.5"/>
+
+  <!-- Upper facet -->
+  <polygon points="60,22 110,30 250,64 130,60 70,46" fill="url(#nhFacetTop)"/>
+  <!-- Lower facet -->
+  <polygon points="60,106 110,98 250,64 130,68 70,82" fill="url(#nhFacetBot)"/>
+  <!-- Central spine facet -->
+  <polygon points="70,46 130,60 250,64 130,68 70,82 56,64" fill="url(#nhHull)"/>
+
+  <!-- Faceted panel creases (angular, dark) -->
+  <line x1="70"  y1="46" x2="250" y2="64" stroke="#2a3450" stroke-width="0.6" opacity="0.7"/>
+  <line x1="70"  y1="82" x2="250" y2="64" stroke="#0a0e18" stroke-width="0.6" opacity="0.7"/>
+  <line x1="56"  y1="64" x2="130" y2="60" stroke="#2a3450" stroke-width="0.5" opacity="0.5"/>
+  <line x1="56"  y1="64" x2="130" y2="68" stroke="#0a0e18" stroke-width="0.5" opacity="0.5"/>
+  <line x1="100" y1="36" x2="120" y2="92" stroke="#0a0e18" stroke-width="0.5" opacity="0.5"/>
+  <line x1="150" y1="48" x2="160" y2="80" stroke="#0a0e18" stroke-width="0.5" opacity="0.4"/>
+
+  <!-- Ice-blue leading-edge glow (the only bright lines — stealth aesthetic) -->
+  <polyline points="60,22 110,30 250,64" fill="none" stroke="url(#nhEdge)" stroke-width="1.3" filter="url(#nhGlow)"/>
+  <polyline points="60,106 110,98 250,64" fill="none" stroke="url(#nhEdge)" stroke-width="1.3" filter="url(#nhGlow)"/>
+
+  <!-- Recessed cockpit (low-profile, faceted canopy) -->
+  <polygon points="176,58 206,62 200,68 174,66" fill="url(#nhCockpit)" stroke="#0288d1" stroke-width="0.6"/>
+  <line x1="178" y1="60" x2="200" y2="63.5" stroke="#b3e5fc" stroke-width="0.4" opacity="0.5"/>
+
+  <!-- Stealth nose tip -->
+  <polygon points="244,62 252,64 244,66" fill="#40c4ff" filter="url(#nhGlow)"/>
+
+  <!-- Twin slit exhaust nozzles (flush, low-IR) -->
+  <rect x="22" y="52" width="20" height="6" rx="2" fill="#05060a" stroke="#1f2740" stroke-width="0.8"/>
+  <rect x="22" y="70" width="20" height="6" rx="2" fill="#05060a" stroke="#1f2740" stroke-width="0.8"/>
+  <rect x="24" y="54" width="14" height="2" rx="1" fill="#40c4ff" opacity="0.7" filter="url(#nhGlow)"/>
+  <rect x="24" y="72" width="14" height="2" rx="1" fill="#40c4ff" opacity="0.7" filter="url(#nhGlow)"/>
+
+  <!-- Faint formation lights -->
+  <circle cx="62" cy="24" r="1.4" fill="#40c4ff" opacity="0.7" filter="url(#nhGlow)"/>
+  <circle cx="62" cy="104" r="1.4" fill="#40c4ff" opacity="0.7" filter="url(#nhGlow)"/>
+
+  <!-- ── WEAPONS — concealed internal bay rail-launcher (deploys forward) ── -->
+  <!-- Internal bay outline (recessed, glowing seam) -->
+  <rect x="120" y="74" width="48" height="9" rx="1.5" fill="#05060a" stroke="#1f2740" stroke-width="0.6"/>
+  <line x1="120" y1="78.5" x2="168" y2="78.5" stroke="#40c4ff" stroke-width="0.5" opacity="0.5" filter="url(#nhGlow)"/>
+  <!-- Stealth missile slugs in bay -->
+  <rect x="124" y="76" width="20" height="2.4" rx="1" fill="#283655"/>
+  <rect x="124" y="79.5" width="20" height="2.4" rx="1" fill="#283655"/>
+  <rect x="142" y="76" width="4" height="2.4" rx="0.5" fill="#40c4ff" filter="url(#nhGlow)"/>
+  <rect x="142" y="79.5" width="4" height="2.4" rx="0.5" fill="#40c4ff" filter="url(#nhGlow)"/>
+  <!-- Twin spinal rail-cannons (flush along leading nose) -->
+  <rect x="206" y="61" width="44" height="1.6" rx="0.5" fill="#37474f"/>
+  <rect x="206" y="66" width="44" height="1.6" rx="0.5" fill="#37474f"/>
+  <rect x="208" y="61" width="42" height="0.7" fill="#40c4ff" opacity="0.5" filter="url(#nhGlow)"/>
+  <rect x="248" y="61" width="3" height="1.6" fill="#b3e5fc" filter="url(#nhGlow)"/>
+  <rect x="248" y="66" width="3" height="1.6" fill="#b3e5fc" filter="url(#nhGlow)"/>
+</svg>

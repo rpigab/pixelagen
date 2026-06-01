@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 128" width="256" height="128">
+  <defs>
+    <!-- Leviathan: biomechanical alien — chitin violet / teal carapace / bioluminescent cyan -->
+    <linearGradient id="levHull" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#1a0033"/>
+      <stop offset="35%"  stop-color="#4a148c"/>
+      <stop offset="70%"  stop-color="#6a1b9a"/>
+      <stop offset="100%" stop-color="#ab47bc"/>
+    </linearGradient>
+    <linearGradient id="levCarapace" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#00695c"/>
+      <stop offset="50%"  stop-color="#00897b"/>
+      <stop offset="100%" stop-color="#004d40"/>
+    </linearGradient>
+    <radialGradient id="levSheen" cx="40%" cy="20%" r="80%">
+      <stop offset="0%"   stop-color="#e1bee7" stop-opacity="0.55"/>
+      <stop offset="50%"  stop-color="#6a1b9a" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#0a0014" stop-opacity="0.6"/>
+    </radialGradient>
+    <radialGradient id="levBio" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#e0ffff"/>
+      <stop offset="30%"  stop-color="#18ffff"/>
+      <stop offset="70%"  stop-color="#00b8d4" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#006064" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="levEye" cx="40%" cy="35%" r="70%">
+      <stop offset="0%"   stop-color="#fff59d"/>
+      <stop offset="40%"  stop-color="#ffab00"/>
+      <stop offset="100%" stop-color="#e65100"/>
+    </radialGradient>
+    <filter id="levBlur"><feGaussianBlur stdDeviation="4"/></filter>
+    <filter id="levGlow"><feGaussianBlur stdDeviation="1.8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+
+  <!-- Bioluminescent propulsion vent (rear) -->
+  <ellipse cx="14" cy="64" rx="30" ry="20" fill="url(#levBio)" filter="url(#levBlur)"/>
+
+  <!-- Trailing organic tendrils -->
+  <path d="M40,52 Q14,40 4,46 Q18,52 36,58 Z" fill="#4a148c" opacity="0.7"/>
+  <path d="M40,76 Q14,88 4,82 Q18,76 36,70 Z" fill="#4a148c" opacity="0.7"/>
+  <path d="M44,60 Q18,58 6,64 Q20,70 44,68 Z" fill="#6a1b9a" opacity="0.6"/>
+
+  <!-- Main organic body (smooth curved carapace) -->
+  <path d="M30,64
+           C30,40 70,24 120,28
+           C170,32 210,46 248,64
+           C210,82 170,96 120,100
+           C70,104 30,88 30,64 Z"
+        fill="url(#levHull)" stroke="#2e0052" stroke-width="0.6"/>
+  <path d="M30,64
+           C30,40 70,24 120,28
+           C170,32 210,46 248,64
+           C210,82 170,96 120,100
+           C70,104 30,88 30,64 Z"
+        fill="url(#levSheen)"/>
+
+  <!-- Teal dorsal carapace ridge -->
+  <path d="M48,50 C90,30 150,32 210,52 C160,40 100,40 56,56 Z"
+        fill="url(#levCarapace)" opacity="0.9"/>
+  <!-- Ventral carapace -->
+  <path d="M56,74 C100,90 160,90 210,76 C150,98 90,96 48,80 Z"
+        fill="url(#levCarapace)" opacity="0.75"/>
+
+  <!-- Chitin segment ribs (curved) -->
+  <path d="M70,32 C66,52 66,76 74,96" fill="none" stroke="#2e0052" stroke-width="1.1" opacity="0.6"/>
+  <path d="M96,28 C92,50 92,78 100,100" fill="none" stroke="#2e0052" stroke-width="1.1" opacity="0.6"/>
+  <path d="M124,28 C120,50 120,80 128,100" fill="none" stroke="#2e0052" stroke-width="1" opacity="0.55"/>
+  <path d="M152,30 C150,50 150,78 156,98" fill="none" stroke="#2e0052" stroke-width="1" opacity="0.5"/>
+  <path d="M180,36 C178,52 178,74 184,92" fill="none" stroke="#2e0052" stroke-width="0.9" opacity="0.45"/>
+
+  <!-- Bioluminescent pustule nodes (glowing spots along spine) -->
+  <g filter="url(#levGlow)">
+    <circle cx="84"  cy="46" r="2.4" fill="#18ffff"/>
+    <circle cx="110" cy="42" r="2.6" fill="#18ffff"/>
+    <circle cx="138" cy="44" r="2.4" fill="#18ffff"/>
+    <circle cx="166" cy="48" r="2.2" fill="#18ffff"/>
+    <circle cx="96"  cy="82" r="2.2" fill="#18ffff"/>
+    <circle cx="124" cy="84" r="2.4" fill="#18ffff"/>
+    <circle cx="152" cy="82" r="2.2" fill="#18ffff"/>
+  </g>
+
+  <!-- Glowing veins -->
+  <path d="M50,64 C90,60 140,60 200,64" fill="none" stroke="#18ffff" stroke-width="0.8" opacity="0.4" filter="url(#levGlow)"/>
+  <path d="M60,56 C100,52 150,54 196,60" fill="none" stroke="#18ffff" stroke-width="0.5" opacity="0.3"/>
+  <path d="M60,72 C100,78 150,76 196,70" fill="none" stroke="#18ffff" stroke-width="0.5" opacity="0.3"/>
+
+  <!-- Sensory eye cluster (front) -->
+  <ellipse cx="210" cy="58" rx="9" ry="7" fill="url(#levEye)" stroke="#3e2723" stroke-width="0.6"/>
+  <circle cx="207" cy="55" r="2.5" fill="#fff59d" opacity="0.7"/>
+  <circle cx="218" cy="68" r="3.5" fill="url(#levEye)"/>
+  <circle cx="200" cy="72" r="2.5" fill="url(#levEye)"/>
+
+  <!-- ── BIO-WEAPON — organic proboscis / acid stinger (front) ── -->
+  <path d="M248,64 C236,58 224,60 220,64 C224,68 236,70 248,64 Z" fill="url(#levCarapace)"/>
+  <path d="M244,62 C252,60 256,62 256,64 C256,66 252,68 244,66 Z" fill="#00897b"/>
+  <!-- Acid charge glow at tip -->
+  <circle cx="254" cy="64" r="3" fill="url(#levBio)" filter="url(#levGlow)"/>
+  <circle cx="254" cy="64" r="1.4" fill="#e0ffff"/>
+
+  <!-- Mandible spines flanking the maw -->
+  <path d="M236,52 C246,46 252,48 252,52 C246,54 240,54 236,56 Z" fill="#004d40" opacity="0.9"/>
+  <path d="M236,76 C246,82 252,80 252,76 C246,74 240,74 236,72 Z" fill="#004d40" opacity="0.9"/>
+</svg>

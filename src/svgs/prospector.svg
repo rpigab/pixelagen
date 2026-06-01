@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 128" width="256" height="128">
+  <defs>
+    <!-- Prospector: industrial mining rig — gunmetal hull / hazard yellow / rust orange -->
+    <linearGradient id="proHull" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#9e9e9e"/>
+      <stop offset="45%"  stop-color="#616161"/>
+      <stop offset="100%" stop-color="#212121"/>
+    </linearGradient>
+    <linearGradient id="proYellow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#ffee58"/>
+      <stop offset="100%" stop-color="#f9a825"/>
+    </linearGradient>
+    <linearGradient id="proRust" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#bf5a36"/>
+      <stop offset="100%" stop-color="#5d2a16"/>
+    </linearGradient>
+    <linearGradient id="proSheen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#e0e0e0" stop-opacity="0.5"/>
+      <stop offset="50%"  stop-color="#616161" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#0a0a0a" stop-opacity="0.6"/>
+    </linearGradient>
+    <radialGradient id="proEng" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#ffffff"/>
+      <stop offset="30%"  stop-color="#ffee58"/>
+      <stop offset="65%"  stop-color="#fb8c00" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#e65100" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="proDrill" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#455a64"/>
+      <stop offset="50%"  stop-color="#cfd8dc"/>
+      <stop offset="100%" stop-color="#78909c"/>
+    </linearGradient>
+    <radialGradient id="proCockpit" cx="32%" cy="28%" r="72%">
+      <stop offset="0%"   stop-color="#fff9c4"/>
+      <stop offset="45%"  stop-color="#fbc02d" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#3e2723" stop-opacity="0.95"/>
+    </radialGradient>
+    <pattern id="proHazard" width="10" height="10" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+      <rect width="10" height="10" fill="#f9a825"/>
+      <rect width="5" height="10" fill="#212121"/>
+    </pattern>
+    <filter id="proBlur"><feGaussianBlur stdDeviation="4"/></filter>
+    <filter id="proGlow"><feGaussianBlur stdDeviation="1.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+
+  <!-- Heavy twin ion thrusters -->
+  <ellipse cx="12" cy="46" rx="22" ry="10" fill="url(#proEng)" filter="url(#proBlur)"/>
+  <ellipse cx="12" cy="82" rx="22" ry="10" fill="url(#proEng)" filter="url(#proBlur)"/>
+
+  <!-- Chunky boxy main hull -->
+  <polygon points="26,34 150,34 168,44 168,84 150,94 26,94" fill="url(#proHull)" stroke="#424242" stroke-width="0.7"/>
+  <polygon points="26,34 150,34 168,44 168,84 150,94 26,94" fill="url(#proSheen)"/>
+
+  <!-- Hazard stripe band -->
+  <rect x="26" y="60" width="142" height="8" fill="url(#proHazard)" opacity="0.9"/>
+
+  <!-- Bolted equipment modules on top -->
+  <rect x="40"  y="22" width="30" height="12" rx="1.5" fill="url(#proHull)" stroke="#424242" stroke-width="0.6"/>
+  <rect x="44"  y="25" width="22" height="3" fill="url(#proRust)"/>
+  <rect x="84"  y="20" width="26" height="14" rx="1.5" fill="url(#proHull)" stroke="#424242" stroke-width="0.6"/>
+  <rect x="88"  y="23" width="18" height="3" fill="url(#proYellow)"/>
+  <!-- Ore-storage tank (cylinder) -->
+  <rect x="118" y="18" width="34" height="16" rx="6" fill="url(#proRust)" stroke="#3e1f10" stroke-width="0.7"/>
+  <line x1="126" y1="18" x2="126" y2="34" stroke="#3e1f10" stroke-width="0.6" opacity="0.6"/>
+  <line x1="136" y1="18" x2="136" y2="34" stroke="#3e1f10" stroke-width="0.6" opacity="0.6"/>
+  <line x1="146" y1="18" x2="146" y2="34" stroke="#3e1f10" stroke-width="0.6" opacity="0.6"/>
+
+  <!-- Underside reinforced skids -->
+  <polygon points="26,90 150,90 150,98 32,98" fill="url(#proRust)" opacity="0.85"/>
+  <line x1="26" y1="90" x2="150" y2="90" stroke="#3e1f10" stroke-width="1"/>
+
+  <!-- Riveted seams -->
+  <line x1="60"  y1="34" x2="60"  y2="94" stroke="#9e9e9e" stroke-width="0.6" opacity="0.4"/>
+  <line x1="96"  y1="34" x2="96"  y2="94" stroke="#9e9e9e" stroke-width="0.6" opacity="0.4"/>
+  <line x1="132" y1="34" x2="132" y2="94" stroke="#9e9e9e" stroke-width="0.6" opacity="0.35"/>
+  <g fill="#cfd8dc" opacity="0.4">
+    <circle cx="34" cy="40" r="1"/><circle cx="34" cy="88" r="1"/>
+    <circle cx="144" cy="40" r="1"/><circle cx="144" cy="88" r="1"/>
+  </g>
+
+  <!-- Cockpit / control cabin (top-front, boxy) -->
+  <polygon points="150,38 168,44 168,56 150,56" fill="url(#proCockpit)" stroke="#fbc02d" stroke-width="0.8"/>
+  <line x1="152" y1="46" x2="166" y2="48" stroke="#fff9c4" stroke-width="0.4" opacity="0.5"/>
+
+  <!-- Floodlights -->
+  <circle cx="160" cy="62" r="2.2" fill="#fff9c4" filter="url(#proGlow)"/>
+  <circle cx="160" cy="78" r="2.2" fill="#fff9c4" filter="url(#proGlow)"/>
+
+  <!-- Twin engine nozzles -->
+  <rect x="14" y="38" width="18" height="16" rx="2" fill="#0a0a0a" stroke="#424242" stroke-width="1"/>
+  <rect x="14" y="74" width="18" height="16" rx="2" fill="#0a0a0a" stroke="#424242" stroke-width="1"/>
+  <ellipse cx="23" cy="46" rx="6" ry="6" fill="url(#proEng)"/>
+  <ellipse cx="23" cy="82" rx="6" ry="6" fill="url(#proEng)"/>
+  <!-- Caution chevrons on cowling -->
+  <rect x="14" y="36" width="20" height="2" fill="url(#proHazard)"/>
+  <rect x="14" y="90" width="20" height="2" fill="url(#proHazard)"/>
+
+  <!-- ── MINING GEAR (forward, pointing right) ── -->
+  <!-- Drill mount housing -->
+  <rect x="166" y="50" width="20" height="28" rx="3" fill="url(#proHull)" stroke="#424242" stroke-width="0.7"/>
+  <rect x="166" y="58" width="20" height="8" fill="url(#proHazard)"/>
+  <!-- Massive conical drill bit -->
+  <polygon points="186,52 246,64 186,76" fill="url(#proDrill)" stroke="#37474f" stroke-width="0.6"/>
+  <!-- Drill helical flutes -->
+  <line x1="190" y1="56" x2="232" y2="63" stroke="#37474f" stroke-width="0.8" opacity="0.7"/>
+  <line x1="190" y1="64" x2="240" y2="64" stroke="#cfd8dc" stroke-width="0.6" opacity="0.6"/>
+  <line x1="190" y1="72" x2="232" y2="65" stroke="#37474f" stroke-width="0.8" opacity="0.7"/>
+  <line x1="200" y1="54" x2="220" y2="74" stroke="#90a4ae" stroke-width="0.5" opacity="0.5"/>
+  <line x1="212" y1="56" x2="230" y2="72" stroke="#90a4ae" stroke-width="0.5" opacity="0.5"/>
+  <polygon points="244,63 252,64 244,65" fill="#cfd8dc"/>
+
+  <!-- Hydraulic grabber claw (upper arm) -->
+  <line x1="160" y1="50" x2="186" y2="40" stroke="#616161" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="186,40 200,32 198,38 188,44" fill="url(#proYellow)" stroke="#5d2a16" stroke-width="0.5"/>
+  <polygon points="186,44 200,52 198,46 188,42" fill="url(#proYellow)" stroke="#5d2a16" stroke-width="0.5"/>
+  <circle cx="186" cy="42" r="2.5" fill="#37474f" stroke="#9e9e9e" stroke-width="0.5"/>
+
+  <!-- Salvage cutting laser (lower arm) -->
+  <line x1="160" y1="84" x2="184" y2="92" stroke="#616161" stroke-width="2.6" stroke-linecap="round"/>
+  <rect x="182" y="88" width="12" height="6" rx="2" fill="url(#proHull)" stroke="#424242" stroke-width="0.5"/>
+  <rect x="194" y="90" width="14" height="2" rx="0.6" fill="#ff3d00" filter="url(#proGlow)"/>
+  <rect x="206" y="90" width="3" height="2" fill="#fff9c4" filter="url(#proGlow)"/>
+</svg>

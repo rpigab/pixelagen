@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 128" width="256" height="128">
+  <defs>
+    <!-- Aurora: science explorer — pearl white hull / teal trim / gold solar arrays -->
+    <linearGradient id="auHull" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#ffffff"/>
+      <stop offset="45%"  stop-color="#eceff1"/>
+      <stop offset="100%" stop-color="#b0bec5"/>
+    </linearGradient>
+    <linearGradient id="auTeal" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#4dd0e1"/>
+      <stop offset="100%" stop-color="#00838f"/>
+    </linearGradient>
+    <linearGradient id="auSheen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.7"/>
+      <stop offset="50%"  stop-color="#eceff1" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#607d8b" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="auSolar" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#ffe082"/>
+      <stop offset="50%"  stop-color="#ffb300"/>
+      <stop offset="100%" stop-color="#bf8a00"/>
+    </linearGradient>
+    <radialGradient id="auEng" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#ffffff"/>
+      <stop offset="30%"  stop-color="#84ffff"/>
+      <stop offset="70%"  stop-color="#00acc1" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#006064" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="auCockpit" cx="35%" cy="28%" r="72%">
+      <stop offset="0%"   stop-color="#ffffff"/>
+      <stop offset="45%"  stop-color="#4dd0e1" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#00474e" stop-opacity="0.95"/>
+    </radialGradient>
+    <radialGradient id="auDish" cx="50%" cy="40%" r="60%">
+      <stop offset="0%"   stop-color="#ffffff"/>
+      <stop offset="70%"  stop-color="#cfd8dc"/>
+      <stop offset="100%" stop-color="#78909c"/>
+    </radialGradient>
+    <filter id="auBlur"><feGaussianBlur stdDeviation="4"/></filter>
+    <filter id="auGlow"><feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+
+  <!-- Clean twin ion plumes -->
+  <ellipse cx="12" cy="56" rx="26" ry="8" fill="url(#auEng)" filter="url(#auBlur)"/>
+  <ellipse cx="12" cy="72" rx="26" ry="8" fill="url(#auEng)" filter="url(#auBlur)"/>
+
+  <!-- Gold solar-panel arrays (top + bottom, on booms) -->
+  <line x1="92" y1="50" x2="92" y2="22" stroke="#90a4ae" stroke-width="1.4"/>
+  <rect x="64" y="10" width="72" height="14" rx="1" fill="url(#auSolar)" stroke="#8d6e00" stroke-width="0.5"/>
+  <g stroke="#8d6e00" stroke-width="0.5" opacity="0.7">
+    <line x1="76" y1="10" x2="76" y2="24"/><line x1="88" y1="10" x2="88" y2="24"/>
+    <line x1="100" y1="10" x2="100" y2="24"/><line x1="112" y1="10" x2="112" y2="24"/>
+    <line x1="124" y1="10" x2="124" y2="24"/>
+    <line x1="64" y1="17" x2="136" y2="17"/>
+  </g>
+  <line x1="92" y1="78" x2="92" y2="106" stroke="#90a4ae" stroke-width="1.4"/>
+  <rect x="64" y="104" width="72" height="14" rx="1" fill="url(#auSolar)" stroke="#8d6e00" stroke-width="0.5"/>
+  <g stroke="#8d6e00" stroke-width="0.5" opacity="0.7">
+    <line x1="76" y1="104" x2="76" y2="118"/><line x1="88" y1="104" x2="88" y2="118"/>
+    <line x1="100" y1="104" x2="100" y2="118"/><line x1="112" y1="104" x2="112" y2="118"/>
+    <line x1="124" y1="104" x2="124" y2="118"/>
+    <line x1="64" y1="111" x2="136" y2="111"/>
+  </g>
+
+  <!-- Sleek main hull (smooth elongated capsule) -->
+  <path d="M28,64 C28,52 48,46 80,46 L210,52 C236,56 250,60 252,64 C250,68 236,72 210,76 L80,82 C48,82 28,76 28,64 Z"
+        fill="url(#auHull)" stroke="#b0bec5" stroke-width="0.6"/>
+  <path d="M28,64 C28,52 48,46 80,46 L210,52 C236,56 250,60 252,64 C250,68 236,72 210,76 L80,82 C48,82 28,76 28,64 Z"
+        fill="url(#auSheen)"/>
+
+  <!-- Teal accent stripe -->
+  <path d="M40,58 C90,54 160,55 240,62 C160,60 90,62 40,68 Z" fill="url(#auTeal)" opacity="0.85"/>
+  <line x1="34" y1="64" x2="246" y2="64" stroke="#00838f" stroke-width="0.5" opacity="0.4"/>
+
+  <!-- Fine panel lines -->
+  <line x1="70"  y1="48" x2="70"  y2="80" stroke="#b0bec5" stroke-width="0.5" opacity="0.4"/>
+  <line x1="110" y1="49" x2="110" y2="79" stroke="#b0bec5" stroke-width="0.5" opacity="0.4"/>
+  <line x1="150" y1="50" x2="150" y2="78" stroke="#b0bec5" stroke-width="0.5" opacity="0.35"/>
+  <line x1="190" y1="52" x2="190" y2="76" stroke="#b0bec5" stroke-width="0.5" opacity="0.3"/>
+
+  <!-- Row of lit science-lab windows -->
+  <g filter="url(#auGlow)">
+    <rect x="84"  y="68" width="4" height="3" rx="0.8" fill="#84ffff"/>
+    <rect x="96"  y="68" width="4" height="3" rx="0.8" fill="#84ffff"/>
+    <rect x="108" y="69" width="4" height="3" rx="0.8" fill="#84ffff"/>
+    <rect x="120" y="69" width="4" height="3" rx="0.8" fill="#84ffff"/>
+    <rect x="132" y="70" width="4" height="3" rx="0.8" fill="#84ffff"/>
+  </g>
+
+  <!-- Big parabolic sensor dish (dorsal, mid) -->
+  <line x1="158" y1="52" x2="158" y2="38" stroke="#90a4ae" stroke-width="1.2"/>
+  <ellipse cx="158" cy="34" rx="14" ry="7" fill="url(#auDish)" stroke="#78909c" stroke-width="0.6"/>
+  <ellipse cx="158" cy="34" rx="9" ry="4.5" fill="none" stroke="#90a4ae" stroke-width="0.5" opacity="0.6"/>
+  <line x1="158" y1="34" x2="170" y2="30" stroke="#607d8b" stroke-width="0.8"/>
+  <circle cx="170" cy="30" r="1.6" fill="#ff5252" filter="url(#auGlow)"/>
+
+  <!-- Antenna array (rear top) -->
+  <line x1="56" y1="50" x2="56" y2="30" stroke="#90a4ae" stroke-width="0.9"/>
+  <line x1="50" y1="36" x2="62" y2="36" stroke="#90a4ae" stroke-width="0.7"/>
+  <line x1="52" y1="32" x2="60" y2="32" stroke="#90a4ae" stroke-width="0.7"/>
+  <circle cx="56" cy="29" r="1.4" fill="#84ffff" filter="url(#auGlow)"/>
+
+  <!-- Observation cockpit (forward, panoramic dome) -->
+  <ellipse cx="216" cy="64" rx="20" ry="10" fill="url(#auCockpit)" stroke="#4dd0e1" stroke-width="0.8"/>
+  <ellipse cx="210" cy="60" rx="8" ry="4" fill="#ffffff" opacity="0.4"/>
+  <line x1="216" y1="55" x2="216" y2="73" stroke="#00838f" stroke-width="0.4" opacity="0.5"/>
+
+  <!-- Forward sensor probe nose -->
+  <polygon points="236,61 252,64 236,67" fill="#cfd8dc"/>
+  <line x1="248" y1="64" x2="256" y2="64" stroke="#4dd0e1" stroke-width="1" filter="url(#auGlow)"/>
+  <circle cx="256" cy="64" r="1.6" fill="#84ffff" filter="url(#auGlow)"/>
+
+  <!-- Twin engine nozzles -->
+  <rect x="16" y="50" width="14" height="12" rx="2" fill="#00474e" stroke="#00acc1" stroke-width="0.9"/>
+  <rect x="16" y="66" width="14" height="12" rx="2" fill="#00474e" stroke="#00acc1" stroke-width="0.9"/>
+  <ellipse cx="23" cy="56" rx="5" ry="4" fill="url(#auEng)"/>
+  <ellipse cx="23" cy="72" rx="5" ry="4" fill="url(#auEng)"/>
+
+  <!-- ── DEFENSIVE — single point-defense laser (research vessels are lightly armed) ── -->
+  <rect x="190" y="46" width="10" height="6" rx="2" fill="url(#auTeal)" stroke="#00838f" stroke-width="0.5"/>
+  <rect x="198" y="47.5" width="22" height="1.6" rx="0.5" fill="#cfd8dc"/>
+  <rect x="218" y="47.5" width="3" height="1.6" fill="#84ffff" filter="url(#auGlow)"/>
+</svg>
