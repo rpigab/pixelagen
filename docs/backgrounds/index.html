@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Pixelagen – Backgrounds</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:#0a0a1a;color:#e0e0ff;font-family:'Courier New',monospace;min-height:100vh}
+    header{padding:1.5rem 1rem;text-align:center;border-bottom:1px solid #1a1a4a}
+    h1{font-size:clamp(1.4rem,5vw,2.2rem);letter-spacing:.15em;color:#00e5ff}
+    h1 span{color:#f50057}
+    p.sub{margin-top:.5rem;font-size:.85rem;color:#7986cb;letter-spacing:.08em}
+    nav{display:flex;justify-content:center;gap:1rem;padding:.8rem;border-bottom:1px solid #1a1a4a;flex-wrap:wrap}
+    nav a{color:#7986cb;text-decoration:none;font-size:.85rem;letter-spacing:.1em;padding:.3rem .7rem;border:1px solid #1a1a4a;border-radius:3px}
+    nav a:hover,nav a.active{color:#00e5ff;border-color:#00e5ff}
+    footer{text-align:center;padding:1.5rem;color:#2d2d6e;font-size:.75rem;border-top:1px solid #1a1a4a;margin-top:2rem}
+    .preview-wrap{display:flex;flex-direction:column;align-items:center;padding:2rem 1rem 1rem}
+    .preview-label{font-size:.8rem;color:#7986cb;letter-spacing:.1em;margin-bottom:.8rem}
+    .preview{position:relative;width:480px;height:270px;overflow:hidden;border:1px solid #1a1a4a;border-radius:4px;max-width:100%}
+    .layer{position:absolute;inset:0;background-size:480px 270px;background-repeat:repeat-x;animation:scrollbg linear infinite}
+    @keyframes scrollbg{from{background-position-x:0}to{background-position-x:-480px}}
+    .controls-row{display:flex;gap:1rem;margin-top:.8rem;align-items:center;flex-wrap:wrap;justify-content:center}
+    .controls-row label{font-size:.75rem;color:#7986cb;letter-spacing:.1em}
+    .controls-row input[type=range]{accent-color:#00e5ff;width:120px}
+    .legend{width:480px;max-width:100%;margin:1.5rem auto 0;border-collapse:collapse;font-size:.78rem}
+    .legend th{color:#7986cb;text-align:left;padding:.35rem .6rem;border-bottom:1px solid #1a1a4a;letter-spacing:.08em}
+    .legend td{padding:.3rem .6rem;border-bottom:1px solid #0d0d2e}
+    .layer-check{cursor:pointer}
+    .info{max-width:480px;margin:1.2rem auto 0;color:#4a5a8a;font-size:.75rem;line-height:1.6}
+  </style>
+</head>
+<body>
+  <header><h1>PIXEL<span>AGEN</span></h1><p class="sub">parallax backgrounds</p></header>
+  <nav><a href="/pixelagen/">Home</a>
+    <a href="/pixelagen/ships/">Ships</a>
+    <a href="/pixelagen/backgrounds/" class="active">Backgrounds</a>
+    <a href="/pixelagen/enemies/">Enemies</a></nav>
+  <div class="preview-wrap">
+    <div class="preview-label">ESPACE — 4-layer parallax preview (160×90 art pixels, displayed ×3)</div>
+    <div class="preview" id="preview">
+      <div class="layer" id="l0" style="background-image:url(space/space_layer0.png);animation-duration:120.0s"></div>
+      <div class="layer" id="l1" style="background-image:url(space/space_layer1.png);animation-duration:68.6s"></div>
+      <div class="layer" id="l2" style="background-image:url(space/space_layer2.png);animation-duration:40.0s"></div>
+      <div class="layer" id="l3" style="background-image:url(space/space_layer3.png);animation-duration:24.0s"></div>
+    </div>
+    <div class="controls-row">
+      <label>SPEED</label>
+      <input type="range" id="speed" min="10" max="400" value="100"/>
+      <span id="speedVal" style="color:#00e5ff;font-size:.75rem;width:3em">1.0×</span>
+      <button id="pauseBtn" style="background:#0d0d2e;border:1px solid #1a1a4a;color:#7986cb;padding:.3rem .8rem;font-family:inherit;font-size:.75rem;border-radius:3px;cursor:pointer;letter-spacing:.1em">PAUSE</button>
+    </div>
+    <table class="legend">
+      <thead><tr><th>#</th><th>LAYER</th><th>DESCRIPTION</th><th>SCROLL</th><th>TOGGLE</th></tr></thead>
+      <tbody>
+        <tr>
+          <td style="color:#555">0</td>
+          <td style="color:#00e5ff;letter-spacing:.08em">Deep space</td>
+          <td style="color:#7986cb">Opaque base — replaces solid Phaser bg color</td>
+          <td style="color:#7986cb">×0.20</td>
+          <td><input type="checkbox" class="layer-check" data-layer="0" checked/></td>
+        </tr>
+        <tr>
+          <td style="color:#555">1</td>
+          <td style="color:#00e5ff;letter-spacing:.08em">Nebula</td>
+          <td style="color:#7986cb">Transparent color wash</td>
+          <td style="color:#7986cb">×0.35</td>
+          <td><input type="checkbox" class="layer-check" data-layer="1" checked/></td>
+        </tr>
+        <tr>
+          <td style="color:#555">2</td>
+          <td style="color:#00e5ff;letter-spacing:.08em">Mid stars</td>
+          <td style="color:#7986cb">Transparent, medium-density stars</td>
+          <td style="color:#7986cb">×0.60</td>
+          <td><input type="checkbox" class="layer-check" data-layer="2" checked/></td>
+        </tr>
+        <tr>
+          <td style="color:#555">3</td>
+          <td style="color:#00e5ff;letter-spacing:.08em">Foreground</td>
+          <td style="color:#7986cb">Transparent, sparse — renders above enemies</td>
+          <td style="color:#7986cb">×1.00</td>
+          <td><input type="checkbox" class="layer-check" data-layer="3" checked/></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="info">
+      Art resolution: 160×90 pixels — matches <code style="color:#00e5ff">PIXEL_SCALE=3</code> convention from damoigmai
+      (160 = 480÷3, 90 = 270÷3). Each PNG tiles seamlessly horizontally via Phaser <code style="color:#00e5ff">tileSprite</code>.
+      Layer 3 (foreground) renders above enemies in-game; keep it sparse to preserve gameplay visibility.
+    </p>
+  </div>
+  <footer>generated PNG · 160×90 transparent layers · pixelagen</footer>
+  <script>
+    let paused = false;
+    const preview = document.getElementById('preview');
+    const layers  = document.querySelectorAll('.layer');
+    const speedInput = document.getElementById('speed');
+    const speedVal   = document.getElementById('speedVal');
+    const pauseBtn   = document.getElementById('pauseBtn');
+    const BASE_SPEEDS = [0.20, 0.35, 0.60, 1.00];
+    const BASE_PERIOD = 24; // seconds for speed×1 at scrollSpeed=1
+
+    function applySpeed(mult) {
+      layers.forEach((el, i) => {
+        const dur = (BASE_PERIOD / BASE_SPEEDS[i] / mult).toFixed(2);
+        el.style.animationDuration = dur + 's';
+      });
+    }
+
+    speedInput.addEventListener('input', () => {
+      const mult = parseFloat(speedInput.value) / 100;
+      speedVal.textContent = mult.toFixed(1) + '×';
+      applySpeed(mult);
+    });
+
+    pauseBtn.addEventListener('click', () => {
+      paused = !paused;
+      preview.style.animationPlayState = paused ? 'paused' : '';
+      layers.forEach(el => el.style.animationPlayState = paused ? 'paused' : 'running');
+      pauseBtn.textContent = paused ? 'RESUME' : 'PAUSE';
+      pauseBtn.style.color = paused ? '#00e5ff' : '#7986cb';
+    });
+
+    document.querySelectorAll('.layer-check').forEach(cb => {
+      cb.addEventListener('change', () => {
+        const idx = parseInt(cb.dataset.layer);
+        layers[idx].style.visibility = cb.checked ? 'visible' : 'hidden';
+      });
+    });
+  </script>
+</body>
+</html>

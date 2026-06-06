@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Pixelagen – Spaceship Sprites</title>
+  <title>Pixelagen</title>
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
     body{background:#0a0a1a;color:#e0e0ff;font-family:'Courier New',monospace;min-height:100vh}
@@ -11,155 +11,38 @@
     h1{font-size:clamp(1.4rem,5vw,2.2rem);letter-spacing:.15em;color:#00e5ff}
     h1 span{color:#f50057}
     p.sub{margin-top:.5rem;font-size:.85rem;color:#7986cb;letter-spacing:.08em}
-    nav{display:flex;justify-content:center;gap:1rem;padding:.8rem;border-bottom:1px solid #1a1a4a}
+    nav{display:flex;justify-content:center;gap:1rem;padding:.8rem;border-bottom:1px solid #1a1a4a;flex-wrap:wrap}
     nav a{color:#7986cb;text-decoration:none;font-size:.85rem;letter-spacing:.1em;padding:.3rem .7rem;border:1px solid #1a1a4a;border-radius:3px}
     nav a:hover,nav a.active{color:#00e5ff;border-color:#00e5ff}
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;padding:1.5rem}
-    .card{display:flex;flex-direction:column;align-items:center;background:#0d0d2e;border:1px solid #1a1a4a;border-radius:6px;padding:1rem;text-decoration:none;transition:border-color .2s,box-shadow .2s;cursor:pointer}
-    .card:hover{border-color:#00e5ff;box-shadow:0 0 16px #00e5ff33}
-    .card-img-wrap{width:100%;aspect-ratio:2/1;display:flex;align-items:center;justify-content:center;background:#050514;border-radius:4px;overflow:hidden}
-    .card-img{width:100%;height:100%;object-fit:contain;image-rendering:pixelated}
-    .card-label{margin-top:.7rem;color:#00e5ff;font-size:.9rem;letter-spacing:.12em;text-transform:uppercase}
-    footer{text-align:center;padding:1.5rem;color:#2d2d6e;font-size:.75rem;border-top:1px solid #1a1a4a}
+    footer{text-align:center;padding:1.5rem;color:#2d2d6e;font-size:.75rem;border-top:1px solid #1a1a4a;margin-top:2rem}
   </style>
 </head>
 <body>
   <header>
     <h1>PIXEL<span>AGEN</span></h1>
-    <p class="sub">spaceship sprite generator — side-scrolling shooter</p>
+    <p class="sub">procedural pixel-art asset generator — side-scrolling space shooter</p>
   </header>
-  <nav>
-    <a href="index.html" class="active">Ships</a>
-    <a href="svgs.html">SVG Gallery</a>
-    <a href="sprites.html">Sprite Gallery</a>
-  </nav>
-  <div class="grid">
-    <a href="sprites.html?ship=aurora" class="card">
-      <div class="card-img-wrap">
-        <img src="svgs/aurora.svg" alt="aurora" class="card-img" loading="lazy"/>
-      </div>
-      <div class="card-label">aurora</div>
+  <nav><a href="/pixelagen/" class="active">Home</a>
+    <a href="/pixelagen/ships/">Ships</a>
+    <a href="/pixelagen/backgrounds/">Backgrounds</a>
+    <a href="/pixelagen/enemies/">Enemies</a></nav>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.5rem;padding:2rem;max-width:900px;margin:0 auto">
+    <a href="ships/" style="display:block;background:#0d0d2e;border:1px solid #1a1a4a;border-radius:8px;padding:1.5rem;text-decoration:none;transition:border-color .2s" onmouseover="this.style.borderColor='#00e5ff'" onmouseout="this.style.borderColor='#1a1a4a'">
+      <div style="font-size:2rem;margin-bottom:.8rem">🚀</div>
+      <div style="color:#00e5ff;font-size:1.1rem;letter-spacing:.15em;margin-bottom:.5rem">SHIPS</div>
+      <div style="color:#7986cb;font-size:.8rem">18 SVG designs · 6 rasterization variants · 3 sizes</div>
     </a>
-
-    <a href="sprites.html?ship=bomber" class="card">
-      <div class="card-img-wrap">
-        <img src="svgs/bomber.svg" alt="bomber" class="card-img" loading="lazy"/>
-      </div>
-      <div class="card-label">bomber</div>
+    <a href="backgrounds/" style="display:block;background:#0d0d2e;border:1px solid #1a1a4a;border-radius:8px;padding:1.5rem;text-decoration:none;transition:border-color .2s" onmouseover="this.style.borderColor='#00e5ff'" onmouseout="this.style.borderColor='#1a1a4a'">
+      <div style="font-size:2rem;margin-bottom:.8rem">🌌</div>
+      <div style="color:#00e5ff;font-size:1.1rem;letter-spacing:.15em;margin-bottom:.5rem">BACKGROUNDS</div>
+      <div style="color:#7986cb;font-size:.8rem">4-layer parallax · 160×90 px · animated preview</div>
     </a>
-
-    <a href="sprites.html?ship=carrier" class="card">
-      <div class="card-img-wrap">
-        <img src="svgs/carrier.svg" alt="carrier" class="card-img" loading="lazy"/>
-      </div>
-      <div class="card-label">carrier</div>
-    </a>
-
-    <a href="sprites.html?ship=cruiser" class="card">
-      <div class="card-img-wrap">
-        <img src="svgs/cruiser.svg" alt="cruiser" class="card-img" loading="lazy"/>
-      </div>
-      <div class="card-label">cruiser</div>
-    </a>
-
-    <a href="sprites.html?ship=dreadnought" class="card">
-      <div class="card-img-wrap">
-        <img src="svgs/dreadnought.svg" alt="dreadnought" class="card-img" loading="lazy"/>
-      </div>
-      <div class="card-label">dreadnought</div>
-    </a>
-
-    <a href="sprites.html?ship=fighter" class="card">
-      <div class="card-img-wrap">
-        <img src="svgs/fighter.svg" alt="fighter" class="card-img" loading="lazy"/>
-      </div>
-      <div class="card-label">fighter</div>
-    </a>
-
-    <a href="sprites.html?ship=hornet" class="card">
-      <div class="card-img-wrap">
-        <img src="svgs/hornet.svg" alt="hornet" class="card-img" loading="lazy"/>
-      </div>
-      <div class="card-label">hornet</div>
-    </a>
-
-    <a href="sprites.html?ship=interceptor" class="card">
-      <div class="card-img-wrap">
-        <img src="svgs/interceptor.svg" alt="interceptor" class="card-img" loading="lazy"/>
-      </div>
-      <div class="card-label">interceptor</div>
-    </a>
-
-    <a href="sprites.html?ship=leviathan" class="card">
-      <div class="card-img-wrap">
-        <img src="svgs/leviathan.svg" alt="leviathan" class="card-img" loading="lazy"/>
-      </div>
-      <div class="card-label">leviathan</div>
-    </a>
-
-    <a href="sprites.html?ship=marauder" class="card">
-      <div class="card-img-wrap">
-        <img src="svgs/marauder.svg" alt="marauder" class="card-img" loading="lazy"/>
-      </div>
-      <div class="card-label">marauder</div>
-    </a>
-
-    <a href="sprites.html?ship=nighthawk" class="card">
-      <div class="card-img-wrap">
-        <img src="svgs/nighthawk.svg" alt="nighthawk" class="card-img" loading="lazy"/>
-      </div>
-      <div class="card-label">nighthawk</div>
-    </a>
-
-    <a href="sprites.html?ship=phantom" class="card">
-      <div class="card-img-wrap">
-        <img src="svgs/phantom.svg" alt="phantom" class="card-img" loading="lazy"/>
-      </div>
-      <div class="card-label">phantom</div>
-    </a>
-
-    <a href="sprites.html?ship=prospector" class="card">
-      <div class="card-img-wrap">
-        <img src="svgs/prospector.svg" alt="prospector" class="card-img" loading="lazy"/>
-      </div>
-      <div class="card-label">prospector</div>
-    </a>
-
-    <a href="sprites.html?ship=raptor" class="card">
-      <div class="card-img-wrap">
-        <img src="svgs/raptor.svg" alt="raptor" class="card-img" loading="lazy"/>
-      </div>
-      <div class="card-label">raptor</div>
-    </a>
-
-    <a href="sprites.html?ship=scout" class="card">
-      <div class="card-img-wrap">
-        <img src="svgs/scout.svg" alt="scout" class="card-img" loading="lazy"/>
-      </div>
-      <div class="card-label">scout</div>
-    </a>
-
-    <a href="sprites.html?ship=shuttle_a" class="card">
-      <div class="card-img-wrap">
-        <img src="svgs/shuttle_a.svg" alt="shuttle_a" class="card-img" loading="lazy"/>
-      </div>
-      <div class="card-label">shuttle_a</div>
-    </a>
-
-    <a href="sprites.html?ship=tempest" class="card">
-      <div class="card-img-wrap">
-        <img src="svgs/tempest.svg" alt="tempest" class="card-img" loading="lazy"/>
-      </div>
-      <div class="card-label">tempest</div>
-    </a>
-
-    <a href="sprites.html?ship=warthog" class="card">
-      <div class="card-img-wrap">
-        <img src="svgs/warthog.svg" alt="warthog" class="card-img" loading="lazy"/>
-      </div>
-      <div class="card-label">warthog</div>
+    <a href="enemies/" style="display:block;background:#0d0d2e;border:1px solid #1a1a4a;border-radius:8px;padding:1.5rem;text-decoration:none;transition:border-color .2s" onmouseover="this.style.borderColor='#00e5ff'" onmouseout="this.style.borderColor='#1a1a4a'">
+      <div style="font-size:2rem;margin-bottom:.8rem">👾</div>
+      <div style="color:#00e5ff;font-size:1.1rem;letter-spacing:.15em;margin-bottom:.5rem">ENEMIES</div>
+      <div style="color:#7986cb;font-size:.8rem">coming soon</div>
     </a>
   </div>
-  <footer>sprites generated from SVG · transparent PNG · 32×16 / 64×32 / 128×64</footer>
+  <footer>sprites generated from SVG · transparent PNG · pixelagen</footer>
 </body>
 </html>
