@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const { rasterizeSvg, VARIANTS, SIZES } = require('./rasterize.js');
 const { generateBackgrounds, WORLDS, BG_W } = require('./generate-backgrounds.js');
+const { generateOther, SPRITES: OTHER_SPRITES } = require('./generate-other.js');
 
 const ROOT       = path.resolve(__dirname, '..');
 const SHIPS_SRC  = path.join(ROOT, 'src', 'ships');
@@ -13,17 +14,19 @@ const SVG_DEST   = path.join(DOCS_DIR, 'svgs');        // kept for CDN backward-
 const SHIPS_DIR  = path.join(DOCS_DIR, 'ships');
 const BG_DIR     = path.join(DOCS_DIR, 'backgrounds');
 const ENEMIES_DIR = path.join(DOCS_DIR, 'enemies');
+const OTHER_DIR   = path.join(DOCS_DIR, 'other');
 
 const args = process.argv.slice(2);
 const svgOnly        = args.includes('--svg-only');
 const spritesOnly    = args.includes('--sprites-only');
 const shipsOnly      = args.includes('--ships-only');
 const backgroundsOnly = args.includes('--backgrounds-only');
+const otherOnly      = args.includes('--other-only');
 
 async function main() {
   console.log('pixelagen build starting…\n');
 
-  for (const d of [DOCS_DIR, SPRITE_DIR, SVG_DEST, SHIPS_DIR, BG_DIR, ENEMIES_DIR]) {
+  for (const d of [DOCS_DIR, SPRITE_DIR, SVG_DEST, SHIPS_DIR, BG_DIR, ENEMIES_DIR, OTHER_DIR]) {
     fs.mkdirSync(d, { recursive: true });
   }
 
@@ -68,6 +71,17 @@ async function main() {
   // ── Enemies placeholder ────────────────────────────────────────────────────
   generateEnemiesPage();
 
+  // ── Other (powerups / bullets / explosions) ────────────────────────────────
+  if (!shipsOnly && !backgroundsOnly && !svgOnly) {
+    console.log('\n  generating other sprites…');
+    const otherResults = await generateOther(DOCS_DIR);
+    for (const r of otherResults) {
+      console.log(`    → ${path.relative(ROOT, r.file)}  [${r.w}×${r.h}]`);
+    }
+    generateOtherPage(otherResults);
+    console.log('  generated other/index.html');
+  }
+
   // ── Landing ────────────────────────────────────────────────────────────────
   generateLandingPage(svgFiles);
   console.log('  generated index.html (landing)');
@@ -95,6 +109,7 @@ function navLinks(active) {
     { href: '/pixelagen/ships/',              label: 'Ships'       },
     { href: '/pixelagen/backgrounds/',        label: 'Backgrounds' },
     { href: '/pixelagen/enemies/',            label: 'Enemies'     },
+    { href: '/pixelagen/other/',              label: 'Other'       },
   ];
   return links.map(l =>
     `<a href="${l.href}"${l.label === active ? ' class="active"' : ''}>${l.label}</a>`
@@ -138,6 +153,11 @@ function generateLandingPage(svgFiles) {
       <div style="font-size:2rem;margin-bottom:.8rem">👾</div>
       <div style="color:#00e5ff;font-size:1.1rem;letter-spacing:.15em;margin-bottom:.5rem">ENEMIES</div>
       <div style="color:#7986cb;font-size:.8rem">coming soon</div>
+    </a>
+    <a href="other/" style="display:block;background:#0d0d2e;border:1px solid #1a1a4a;border-radius:8px;padding:1.5rem;text-decoration:none;transition:border-color .2s" onmouseover="this.style.borderColor='#00e5ff'" onmouseout="this.style.borderColor='#1a1a4a'">
+      <div style="font-size:2rem;margin-bottom:.8rem">💥</div>
+      <div style="color:#00e5ff;font-size:1.1rem;letter-spacing:.15em;margin-bottom:.5rem">OTHER</div>
+      <div style="color:#7986cb;font-size:.8rem">2 powerups · 4 bullets · 2 explosions · 4× pixel scale</div>
     </a>
   </div>
   <footer>sprites generated from SVG · transparent PNG · pixelagen</footer>
@@ -396,6 +416,65 @@ function generateBackgroundPage() {
 </body>
 </html>`;
   fs.writeFileSync(path.join(BG_DIR, 'index.html'), html);
+}
+
+// ── Other page ────────────────────────────────────────────────────────────────
+function generateOtherPage(results) {
+  const CATEGORY_LABELS = {
+    powerups:   'POWERUPS',
+    bullets:    'BULLETS',
+    explosions: 'EXPLOSIONS',
+  };
+
+  // Group by category
+  const byCategory = {};
+  for (const r of results) {
+    const cat = r.sprite.category;
+    if (!byCategory[cat]) byCategory[cat] = [];
+    byCategory[cat].push(r);
+  }
+
+  const sections = Object.entries(byCategory).map(([cat, items]) => {
+    const cards = items.map(r => {
+      const { name, label, originSize } = r.sprite;
+      const zoom = Math.min(8, Math.floor(128 / Math.max(r.w, r.h)));
+      const displayW = r.w * zoom;
+      const displayH = r.h * zoom;
+      return `
+    <div class="card">
+      <div class="card-img-wrap" style="width:${Math.max(displayW, 80)}px;height:${Math.max(displayH, 80)}px">
+        <img src="${name}.png" alt="${label}" width="${displayW}" height="${displayH}" style="image-rendering:pixelated"/>
+      </div>
+      <div class="card-label">${label}</div>
+      <div class="card-dims">${r.w}×${r.h} px &nbsp;(origin ${originSize})</div>
+    </div>`;
+    }).join('');
+    return `
+  <section class="cat-section">
+    <h2 class="cat-title">${CATEGORY_LABELS[cat] || cat.toUpperCase()}</h2>
+    <div class="cat-grid">${cards}
+    </div>
+  </section>`;
+  }).join('');
+
+  const html = head('Pixelagen – Other') + `
+    .cat-section{padding:1.5rem 1rem;border-bottom:1px solid #0d0d2e;max-width:900px;margin:0 auto}
+    .cat-title{font-size:.9rem;letter-spacing:.25em;color:#7986cb;margin-bottom:1.2rem;padding-left:.2rem}
+    .cat-grid{display:flex;flex-wrap:wrap;gap:1.5rem;align-items:flex-end}
+    .card{display:flex;flex-direction:column;align-items:center;background:#0d0d2e;border:1px solid #1a1a4a;border-radius:6px;padding:1rem;gap:.6rem}
+    .card-img-wrap{display:flex;align-items:center;justify-content:center;background:#050514;border-radius:4px}
+    .card-label{color:#00e5ff;font-size:.8rem;letter-spacing:.12em;text-align:center}
+    .card-dims{color:#37474f;font-size:.65rem;letter-spacing:.06em;text-align:center}
+  </style>
+</head>
+<body>
+  <header><h1>PIXEL<span>AGEN</span></h1><p class="sub">powerups · bullets · explosions</p></header>
+  <nav>${navLinks('Other')}</nav>
+  ${sections}
+  <footer>pixel art · 4× game logical resolution · transparent PNG · pixelagen</footer>
+</body>
+</html>`;
+  fs.writeFileSync(path.join(OTHER_DIR, 'index.html'), html);
 }
 
 // ── Enemies placeholder ───────────────────────────────────────────────────────
