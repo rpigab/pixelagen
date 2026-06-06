@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 40">
+  <!-- Cluster: three overlapping plasma orbs in a tight triangle formation -->
+  <!-- Back-left orb: magenta -->
+  <circle cx="18" cy="26" r="14" fill="#440022"/>
+  <circle cx="18" cy="26" r="9"  fill="#cc0077"/>
+  <circle cx="18" cy="26" r="4"  fill="#ff66bb"/>
+  <!-- Back-right orb: violet -->
+  <circle cx="38" cy="26" r="14" fill="#220044"/>
+  <circle cx="38" cy="26" r="9"  fill="#7700cc"/>
+  <circle cx="38" cy="26" r="4"  fill="#cc88ff"/>
+  <!-- Front/top orb: electric blue, renders on top -->
+  <circle cx="28" cy="14" r="14" fill="#001144"/>
+  <circle cx="28" cy="14" r="9"  fill="#0055ee"/>
+  <circle cx="28" cy="14" r="4"  fill="#88ccff"/>
+  <!-- Shared bright center where all three meet -->
+  <circle cx="28" cy="22" r="4"  fill="#ffffff"/>
+</svg>

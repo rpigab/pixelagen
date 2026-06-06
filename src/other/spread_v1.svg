@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <!-- Crystal: kite/arrowhead pointing right, dark blue shell, light blue fill -->
+  <!-- Outer dark navy kite -->
+  <polygon points="0,12 8,0 24,12 8,24" fill="#0033aa"/>
+  <!-- Mid blue fill -->
+  <polygon points="4,12 8,4 20,12 8,20" fill="#0077ee"/>
+  <!-- Inner light blue -->
+  <polygon points="8,12 10,8 16,12 10,16" fill="#55bbff"/>
+  <!-- White hot tip -->
+  <rect x="20" y="10" width="4"  height="4"  fill="#cceeFF"/>
+</svg>

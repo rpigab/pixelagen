@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 12">
+  <!-- Bolt: tapered bright yellow bolt, dark gold body, white-hot core -->
+  <!-- Tail stub -->
+  <rect x="0"  y="4"  width="4"  height="4"  fill="#886600"/>
+  <!-- Outer body: dark gold top+bottom strips -->
+  <rect x="4"  y="0"  width="40" height="4"  fill="#cc9900"/>
+  <rect x="4"  y="8"  width="40" height="4"  fill="#cc9900"/>
+  <!-- Bright yellow center band -->
+  <rect x="4"  y="4"  width="40" height="4"  fill="#ffee00"/>
+  <!-- White-hot inner core -->
+  <rect x="8"  y="4"  width="32" height="4"  fill="#ffffaa"/>
+  <!-- Orange tip -->
+  <rect x="44" y="0"  width="4"  height="12" fill="#ff8800"/>
+  <!-- White tip core -->
+  <rect x="44" y="4"  width="4"  height="4"  fill="#ffffff"/>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 8">
+  <!-- Needle: very long thin spike, bright yellow with white core line -->
+  <!-- Faint energy trail -->
+  <rect x="0"  y="2"  width="12" height="4"  fill="#664400"/>
+  <!-- Body: deep gold top+bottom -->
+  <rect x="12" y="0"  width="48" height="2"  fill="#aa7700"/>
+  <rect x="12" y="6"  width="48" height="2"  fill="#aa7700"/>
+  <!-- Bright yellow center -->
+  <rect x="12" y="2"  width="48" height="4"  fill="#ffdd00"/>
+  <!-- White core line (1 row tall = 2px) -->
+  <rect x="16" y="3"  width="40" height="2"  fill="#ffffff"/>
+  <!-- Tapered tip: orange then nothing -->
+  <rect x="60" y="2"  width="4"  height="4"  fill="#ff9900"/>
+  <rect x="62" y="3"  width="2"  height="2"  fill="#ffeeaa"/>
+</svg>

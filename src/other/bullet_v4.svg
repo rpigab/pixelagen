@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 16">
+  <!-- Twin: two parallel laser beams, gap in the middle -->
+  <!-- Top beam: dark gold shell -->
+  <rect x="4"  y="0"  width="40" height="6"  fill="#bb8800"/>
+  <!-- Top beam: bright core -->
+  <rect x="4"  y="2"  width="40" height="2"  fill="#ffffaa"/>
+  <!-- Bottom beam: dark gold shell -->
+  <rect x="4"  y="10" width="40" height="6"  fill="#bb8800"/>
+  <!-- Bottom beam: bright core -->
+  <rect x="4"  y="12" width="40" height="2"  fill="#ffffaa"/>
+  <!-- Shared orange tips -->
+  <rect x="44" y="0"  width="4"  height="6"  fill="#ff7700"/>
+  <rect x="44" y="10" width="4"  height="6"  fill="#ff7700"/>
+  <!-- White tip sparks -->
+  <rect x="44" y="2"  width="4"  height="2"  fill="#ffffff"/>
+  <rect x="44" y="12" width="4"  height="2"  fill="#ffffff"/>
+  <!-- Shared dark tails -->
+  <rect x="0"  y="2"  width="4"  height="2"  fill="#665500"/>
+  <rect x="0"  y="12" width="4"  height="2"  fill="#665500"/>
+</svg>

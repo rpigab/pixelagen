@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 12">
+  <!-- Tracer: three bright segments separated by dim gaps, forward tip -->
+  <!-- Dark base bar -->
+  <rect x="0"  y="4"  width="48" height="4"  fill="#665500"/>
+  <!-- Segment 1 -->
+  <rect x="4"  y="0"  width="8"  height="12" fill="#ddaa00"/>
+  <rect x="4"  y="4"  width="8"  height="4"  fill="#ffffff"/>
+  <!-- Segment 2 -->
+  <rect x="16" y="0"  width="8"  height="12" fill="#ddaa00"/>
+  <rect x="16" y="4"  width="8"  height="4"  fill="#ffffff"/>
+  <!-- Segment 3 -->
+  <rect x="28" y="0"  width="8"  height="12" fill="#ddaa00"/>
+  <rect x="28" y="4"  width="8"  height="4"  fill="#ffffff"/>
+  <!-- Arrow tip -->
+  <rect x="40" y="4"  width="4"  height="4"  fill="#ff8800"/>
+  <rect x="44" y="4"  width="4"  height="4"  fill="#ffcc44"/>
+</svg>

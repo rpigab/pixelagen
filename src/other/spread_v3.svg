@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <!-- Disc: circle with concentric blue rings and white center -->
+  <circle cx="12" cy="12" r="12" fill="#001199"/>
+  <circle cx="12" cy="12" r="9"  fill="#0055dd"/>
+  <circle cx="12" cy="12" r="6"  fill="#2299ff"/>
+  <circle cx="12" cy="12" r="3"  fill="#99ddff"/>
+  <!-- White hot center -->
+  <rect x="10" y="10" width="4"  height="4"  fill="#ffffff"/>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 40">
+  <!-- Nova: toxic green plasma orb — poisonous/acid look -->
+  <ellipse cx="28" cy="20" rx="28" ry="20" fill="#001100"/>
+  <ellipse cx="28" cy="20" rx="21" ry="15" fill="#115500"/>
+  <ellipse cx="28" cy="20" rx="15" ry="10" fill="#22aa00"/>
+  <ellipse cx="28" cy="20" rx="9"  ry="6"  fill="#88ff00"/>
+  <!-- Yellow-green hot core -->
+  <ellipse cx="28" cy="20" rx="4"  ry="3"  fill="#eeff66"/>
+  <!-- White flash -->
+  <ellipse cx="28" cy="20" rx="2"  ry="2"  fill="#ffffff"/>
+</svg>

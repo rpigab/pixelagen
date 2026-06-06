@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 40">
+  <!-- Globe: deep purple concentric orb, violet to white core -->
+  <ellipse cx="28" cy="20" rx="28" ry="20" fill="#110022"/>
+  <ellipse cx="28" cy="20" rx="22" ry="15" fill="#6600aa"/>
+  <ellipse cx="28" cy="20" rx="15" ry="10" fill="#cc22ff"/>
+  <ellipse cx="28" cy="20" rx="8"  ry="5"  fill="#ee88ff"/>
+  <!-- White-hot nucleus -->
+  <ellipse cx="28" cy="20" rx="3"  ry="3"  fill="#ffffff"/>
+</svg>

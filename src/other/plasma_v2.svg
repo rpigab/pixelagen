@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 40">
+  <!-- Comet: elongated plasma with tail, forward nucleus, cyan-teal palette -->
+  <!-- Wide diffuse tail -->
+  <ellipse cx="16" cy="20" rx="16" ry="10" fill="#002233"/>
+  <!-- Elongated body -->
+  <ellipse cx="30" cy="20" rx="22" ry="14" fill="#005566"/>
+  <!-- Bright shell -->
+  <ellipse cx="36" cy="20" rx="16" ry="10" fill="#00aaaa"/>
+  <!-- Hot head -->
+  <ellipse cx="42" cy="20" rx="10" ry="7"  fill="#44ffdd"/>
+  <!-- White nucleus -->
+  <ellipse cx="46" cy="20" rx="5"  ry="4"  fill="#ffffff"/>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <!-- Cross: pixel plus-sign, dark blue outer arms, light center -->
+  <!-- Vertical bar -->
+  <rect x="8"  y="0"  width="8"  height="24" fill="#0044bb"/>
+  <!-- Horizontal bar -->
+  <rect x="0"  y="8"  width="24" height="8"  fill="#0044bb"/>
+  <!-- Brighter overlap square -->
+  <rect x="8"  y="8"  width="8"  height="8"  fill="#0099ff"/>
+  <!-- Bright tips (4 cardinal points) -->
+  <rect x="10" y="0"  width="4"  height="4"  fill="#55ccff"/>
+  <rect x="10" y="20" width="4"  height="4"  fill="#55ccff"/>
+  <rect x="0"  y="10" width="4"  height="4"  fill="#55ccff"/>
+  <rect x="20" y="10" width="4"  height="4"  fill="#55ccff"/>
+  <!-- White center core -->
+  <rect x="10" y="10" width="4"  height="4"  fill="#ddf4ff"/>
+</svg>

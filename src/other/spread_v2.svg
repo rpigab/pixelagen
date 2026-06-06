@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <!-- Pellet: rounded boxy shape, deep navy to sky blue layers -->
+  <!-- Outer: deep navy rounded-rect approximation -->
+  <rect x="0"  y="4"  width="24" height="16" fill="#001566"/>
+  <rect x="4"  y="0"  width="16" height="24" fill="#001566"/>
+  <rect x="2"  y="2"  width="20" height="20" fill="#001566"/>
+  <!-- Mid: cobalt blue -->
+  <rect x="4"  y="4"  width="16" height="16" fill="#0055cc"/>
+  <!-- Inner: bright blue -->
+  <rect x="8"  y="8"  width="8"  height="8"  fill="#44aaff"/>
+  <!-- Center: pale sky -->
+  <rect x="10" y="10" width="4"  height="4"  fill="#bbddff"/>
+</svg>
