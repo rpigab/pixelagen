@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const { rasterizeSvg, VARIANTS, SIZES } = require('./rasterize.js');
-const { generateBackgrounds, LAYERS, W: BG_W, H: BG_H } = require('./generate-backgrounds.js');
+const { generateBackgrounds, WORLDS, BG_W } = require('./generate-backgrounds.js');
 
 const ROOT       = path.resolve(__dirname, '..');
 const SHIPS_SRC  = path.join(ROOT, 'src', 'ships');
@@ -114,7 +114,6 @@ function head(title) {
 // ── Landing page ─────────────────────────────────────────────────────────────
 function generateLandingPage(svgFiles) {
   const shipCount = svgFiles.length;
-  const bgCount   = LAYERS.length;
   const html = head('Pixelagen') + `
   </style>
 </head>
@@ -133,7 +132,7 @@ function generateLandingPage(svgFiles) {
     <a href="backgrounds/" style="display:block;background:#0d0d2e;border:1px solid #1a1a4a;border-radius:8px;padding:1.5rem;text-decoration:none;transition:border-color .2s" onmouseover="this.style.borderColor='#00e5ff'" onmouseout="this.style.borderColor='#1a1a4a'">
       <div style="font-size:2rem;margin-bottom:.8rem">🌌</div>
       <div style="color:#00e5ff;font-size:1.1rem;letter-spacing:.15em;margin-bottom:.5rem">BACKGROUNDS</div>
-      <div style="color:#7986cb;font-size:.8rem">${bgCount}-layer parallax · ${BG_W}×${BG_H} px · animated preview</div>
+      <div style="color:#7986cb;font-size:.8rem">${WORLDS.length} worlds · parallax layers · animated preview</div>
     </a>
     <a href="enemies/" style="display:block;background:#0d0d2e;border:1px solid #1a1a4a;border-radius:8px;padding:1.5rem;text-decoration:none;transition:border-color .2s" onmouseover="this.style.borderColor='#00e5ff'" onmouseout="this.style.borderColor='#1a1a4a'">
       <div style="font-size:2rem;margin-bottom:.8rem">👾</div>
@@ -269,105 +268,130 @@ function generateShipPages(svgFiles) {
 
 // ── Backgrounds page ──────────────────────────────────────────────────────────
 function generateBackgroundPage() {
-  // Build legend rows
-  const legendRows = LAYERS.map((l, i) =>
-    `<tr><td style="color:#00e5ff;letter-spacing:.08em">${l.label}</td><td style="color:#7986cb">${l.desc}</td><td style="color:#7986cb">×${l.scrollSpeed.toFixed(2)}</td></tr>`
-  ).join('\n');
+  const PW = 480, PH = 270;  // preview canvas size
 
-  // Each layer: a div with background-image, animated with CSS.
-  // Display at 3× (480×270), tiling horizontally.
-  const PW = BG_W * 3, PH = BG_H * 3;  // 480×270
-  const layerDivs = LAYERS.map((l, i) => {
-    const dur = (24 / l.scrollSpeed).toFixed(1);
-    return `<div class="layer" id="l${i}" style="background-image:url(space/${l.key}.png);animation-duration:${dur}s"></div>`;
-  }).join('\n      ');
+  // Embed world data for JS: name, h, layers[]{key, scrollSpeed}
+  const worldsJson = JSON.stringify(WORLDS.map(w => ({
+    name: w.name, h: w.h,
+    layers: w.layers.map(l => ({ key: l.key, label: l.label, desc: l.desc, scrollSpeed: l.scrollSpeed })),
+  })));
+
+  const worldOptions = WORLDS.map(w =>
+    `<option value="${w.name}">${w.name.toUpperCase()}</option>`
+  ).join('');
 
   const html = head('Pixelagen – Backgrounds') + `
     .preview-wrap{display:flex;flex-direction:column;align-items:center;padding:2rem 1rem 1rem}
-    .preview-label{font-size:.8rem;color:#7986cb;letter-spacing:.1em;margin-bottom:.8rem}
     .preview{position:relative;width:${PW}px;height:${PH}px;overflow:hidden;border:1px solid #1a1a4a;border-radius:4px;max-width:100%}
-    .layer{position:absolute;inset:0;background-size:${PW}px ${PH}px;background-repeat:repeat-x;animation:scrollbg linear infinite}
+    .layer{position:absolute;inset:0;background-repeat:repeat-x;animation:scrollbg linear infinite}
     @keyframes scrollbg{from{background-position-x:0}to{background-position-x:-${PW}px}}
     .controls-row{display:flex;gap:1rem;margin-top:.8rem;align-items:center;flex-wrap:wrap;justify-content:center}
     .controls-row label{font-size:.75rem;color:#7986cb;letter-spacing:.1em}
+    .controls-row select{background:#0d0d2e;border:1px solid #1a1a4a;color:#e0e0ff;padding:.3rem .6rem;font-family:inherit;font-size:.8rem;border-radius:3px}
     .controls-row input[type=range]{accent-color:#00e5ff;width:120px}
     .legend{width:${PW}px;max-width:100%;margin:1.5rem auto 0;border-collapse:collapse;font-size:.78rem}
     .legend th{color:#7986cb;text-align:left;padding:.35rem .6rem;border-bottom:1px solid #1a1a4a;letter-spacing:.08em}
     .legend td{padding:.3rem .6rem;border-bottom:1px solid #0d0d2e}
     .layer-check{cursor:pointer}
-    .info{max-width:${PW}px;margin:1.2rem auto 0;color:#4a5a8a;font-size:.75rem;line-height:1.6}
+    .info{width:${PW}px;max-width:100%;margin:1.2rem auto 0;color:#4a5a8a;font-size:.75rem;line-height:1.6}
   </style>
 </head>
 <body>
   <header><h1>PIXEL<span>AGEN</span></h1><p class="sub">parallax backgrounds</p></header>
   <nav>${navLinks('Backgrounds')}</nav>
   <div class="preview-wrap">
-    <div class="preview-label">ESPACE — 4-layer parallax preview (${BG_W}×${BG_H} art pixels, displayed ×3)</div>
-    <div class="preview" id="preview">
-      ${layerDivs}
-    </div>
+    <div class="preview" id="preview"></div>
     <div class="controls-row">
+      <label>WORLD</label>
+      <select id="worldSel">${worldOptions}</select>
       <label>SPEED</label>
       <input type="range" id="speed" min="10" max="400" value="100"/>
       <span id="speedVal" style="color:#00e5ff;font-size:.75rem;width:3em">1.0×</span>
       <button id="pauseBtn" style="background:#0d0d2e;border:1px solid #1a1a4a;color:#7986cb;padding:.3rem .8rem;font-family:inherit;font-size:.75rem;border-radius:3px;cursor:pointer;letter-spacing:.1em">PAUSE</button>
     </div>
-    <table class="legend">
-      <thead><tr><th>#</th><th>LAYER</th><th>DESCRIPTION</th><th>SCROLL</th><th>TOGGLE</th></tr></thead>
-      <tbody>
-        ${LAYERS.map((l, i) => `<tr>
-          <td style="color:#555">${i}</td>
-          <td style="color:#00e5ff;letter-spacing:.08em">${l.label}</td>
-          <td style="color:#7986cb">${l.desc}</td>
-          <td style="color:#7986cb">×${l.scrollSpeed.toFixed(2)}</td>
-          <td><input type="checkbox" class="layer-check" data-layer="${i}" checked/></td>
-        </tr>`).join('\n        ')}
-      </tbody>
+    <table class="legend"><thead><tr><th>#</th><th>LAYER</th><th>DESCRIPTION</th><th>SCROLL</th><th>VIS</th></tr></thead>
+      <tbody id="legendBody"></tbody>
     </table>
     <p class="info">
-      Art resolution: ${BG_W}×${BG_H} pixels — matches <code style="color:#00e5ff">PIXEL_SCALE=3</code> convention from damoigmai
-      (160 = 480÷3, 90 = 270÷3). Each PNG tiles seamlessly horizontally via Phaser <code style="color:#00e5ff">tileSprite</code>.
-      Layer 3 (foreground) renders above enemies in-game; keep it sparse to preserve gameplay visibility.
+      Art width: ${BG_W}px. Worlds with ground elements use ${BG_W}×270 (no vertical tiling); star/grid worlds use ${BG_W}×90.
+      Each PNG tiles horizontally via Phaser <code style="color:#00e5ff">tileSprite</code> at 1px/art-px density.
     </p>
   </div>
-  <footer>generated PNG · ${BG_W}×${BG_H} transparent layers · pixelagen</footer>
+  <footer>generated PNG · ${WORLDS.length} worlds · pixelagen</footer>
   <script>
+    const WORLDS = ${worldsJson};
+    const PW = ${PW}, PH = ${PH};
+    const BASE_PERIOD = 24;
     let paused = false;
-    const preview = document.getElementById('preview');
-    const layers  = document.querySelectorAll('.layer');
+    let currentWorld = null;
+    let speedMult = 1;
+
+    const preview    = document.getElementById('preview');
+    const legendBody = document.getElementById('legendBody');
+    const worldSel   = document.getElementById('worldSel');
     const speedInput = document.getElementById('speed');
     const speedVal   = document.getElementById('speedVal');
     const pauseBtn   = document.getElementById('pauseBtn');
-    const BASE_SPEEDS = [${LAYERS.map(l => l.scrollSpeed.toFixed(2)).join(', ')}];
-    const BASE_PERIOD = 24; // seconds for speed×1 at scrollSpeed=1
 
-    function applySpeed(mult) {
-      layers.forEach((el, i) => {
-        const dur = (BASE_PERIOD / BASE_SPEEDS[i] / mult).toFixed(2);
+    function buildWorld(worldName) {
+      const world = WORLDS.find(w => w.name === worldName);
+      preview.innerHTML = '';
+      legendBody.innerHTML = '';
+      currentWorld = world;
+
+      world.layers.forEach((l, i) => {
+        const div = document.createElement('div');
+        div.className = 'layer';
+        div.id = 'l' + i;
+        // background-size: PW × PH (display at 480×270)
+        // For 160×90 textures: tileScaleX=3, tileScaleY=3 equivalent in CSS
+        // For 160×270 textures: tileScaleX=3, tileScaleY=1
+        const bgH = world.h === 90 ? PH : world.h; // 270 in both cases
+        div.style.backgroundImage = \`url(\${world.name}/\${l.key}.png)\`;
+        div.style.backgroundSize = \`\${PW}px \${bgH}px\`;
+        div.style.animationDuration = (BASE_PERIOD / l.scrollSpeed / speedMult).toFixed(2) + 's';
+        if (paused) div.style.animationPlayState = 'paused';
+        preview.appendChild(div);
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = \`<td style="color:#555">\${i}</td>
+          <td style="color:#00e5ff;letter-spacing:.08em">\${l.label}</td>
+          <td style="color:#7986cb">\${l.desc}</td>
+          <td style="color:#7986cb">×\${l.scrollSpeed.toFixed(2)}</td>
+          <td><input type="checkbox" class="layer-check" data-layer="\${i}" checked/></td>\`;
+        legendBody.appendChild(tr);
+      });
+
+      document.querySelectorAll('.layer-check').forEach(cb => {
+        cb.addEventListener('change', () => {
+          const idx = parseInt(cb.dataset.layer);
+          document.getElementById('l' + idx).style.visibility = cb.checked ? 'visible' : 'hidden';
+        });
+      });
+    }
+
+    function applySpeed() {
+      document.querySelectorAll('.layer').forEach((el, i) => {
+        if (!currentWorld) return;
+        const dur = (BASE_PERIOD / currentWorld.layers[i].scrollSpeed / speedMult).toFixed(2);
         el.style.animationDuration = dur + 's';
       });
     }
 
+    worldSel.addEventListener('change', () => buildWorld(worldSel.value));
     speedInput.addEventListener('input', () => {
-      const mult = parseFloat(speedInput.value) / 100;
-      speedVal.textContent = mult.toFixed(1) + '×';
-      applySpeed(mult);
+      speedMult = parseFloat(speedInput.value) / 100;
+      speedVal.textContent = speedMult.toFixed(1) + '×';
+      applySpeed();
     });
-
     pauseBtn.addEventListener('click', () => {
       paused = !paused;
-      preview.style.animationPlayState = paused ? 'paused' : '';
-      layers.forEach(el => el.style.animationPlayState = paused ? 'paused' : 'running');
+      document.querySelectorAll('.layer').forEach(el => el.style.animationPlayState = paused ? 'paused' : 'running');
       pauseBtn.textContent = paused ? 'RESUME' : 'PAUSE';
       pauseBtn.style.color = paused ? '#00e5ff' : '#7986cb';
     });
 
-    document.querySelectorAll('.layer-check').forEach(cb => {
-      cb.addEventListener('change', () => {
-        const idx = parseInt(cb.dataset.layer);
-        layers[idx].style.visibility = cb.checked ? 'visible' : 'hidden';
-      });
-    });
+    buildWorld('space');
   </script>
 </body>
 </html>`;
