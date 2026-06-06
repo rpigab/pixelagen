@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 12">
+  <!-- Yellow body: original x=3..11 cols ×4 = x=12..47 -->
+  <rect x="12" y="0" width="36" height="12" fill="#ffee00"/>
+  <!-- White exhaust: original x=0..2, y=1 ×4 = x=0..11, y=4..7 -->
+  <rect x="0"  y="4" width="12" height="4"  fill="#ffffff"/>
+  <!-- Orange tip: original x=10..11, y=1 ×4 = x=40..47, y=4..7 -->
+  <rect x="40" y="4" width="8"  height="4"  fill="#ff8800"/>
+</svg>

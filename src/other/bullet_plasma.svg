@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 40">
+  <!--
+    Three concentric offset ellipses ×4 from original Phaser fillEllipse(cx,cy,w,h):
+    Outer:  fillEllipse(7,5,14,10) → cx=28,cy=20, rx=28,ry=20
+    Middle: fillEllipse(6,5,10,7)  → cx=24,cy=20, rx=20,ry=14
+    Inner:  fillEllipse(4,4,6,5)   → cx=16,cy=16, rx=12,ry=10
+    Innermost drawn last (on top).
+  -->
+  <ellipse cx="28" cy="20" rx="27" ry="19" fill="#ff4400"/>
+  <ellipse cx="24" cy="20" rx="20" ry="14" fill="#ff8800"/>
+  <ellipse cx="16" cy="16" rx="12" ry="10" fill="#ffdd00"/>
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+  <!--
+    Original 4×4 pixel grid ×4 = 16×16:
+    row 0 (y=0-3):  cols 1-2 → x=4-11
+    row 1-2 (y=4-11): cols 0-3 → x=0-15 (full)
+    row 3 (y=12-15): cols 1-2 → x=4-11
+    Produces a cross/octagon shape.
+  -->
+  <polygon points="4,0 12,0 16,4 16,12 12,16 4,16 0,12 0,4" fill="#ff2222"/>
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!--
+    Original: outer circle r=12, inner r=6. Canvas 25×25, center (12,12).
+    ×4: canvas 100×100, center (50,50), outer r=48, inner r=24.
+    Added yellow mid-ring for a more dynamic blast look.
+  -->
+  <circle cx="50" cy="50" r="49" fill="#ff6600"/>
+  <circle cx="50" cy="50" r="34" fill="#ffaa00"/>
+  <circle cx="50" cy="50" r="24" fill="#ffffff"/>
+</svg>

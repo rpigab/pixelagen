@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <!--
+    Original 6×6 diamond (×4 = 24×24):
+    row 0 (y=0-3):  cols 2-3 → x=8-15
+    row 1 (y=4-7):  cols 1-4 → x=4-19
+    row 2-3 (y=8-15): cols 0-5 → x=0-23 (full)
+    row 4 (y=16-19): cols 1-4 → x=4-19
+    row 5 (y=20-23): cols 2-3 → x=8-15
+    Produces a 12-point polygon (octagonal diamond).
+  -->
+  <polygon points="8,0 16,0 20,4 24,8 24,16 20,20 16,24 8,24 4,20 0,16 0,8 4,4" fill="#00ccff"/>
+  <!-- White highlight: original x=2,y=2-3 ×4 = x=8-11, y=8-15 -->
+  <rect x="8" y="8" width="4" height="8" fill="#ffffff"/>
+</svg>
